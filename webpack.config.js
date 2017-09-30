@@ -7,7 +7,7 @@ require("babel-core").transform("code", {
 });
 
 module.exports = {
-	entry:{"index":['./src/index.js','webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true']},
+	entry:{index:['./src/index.js','webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true']},
 	output:{
 		path:__dirname+"/build",
 		publicPath:'/build/',
@@ -16,11 +16,11 @@ module.exports = {
 	module:{
 		rules:[{
 			test:/\.css$/,
-			loader:'css-loader'
+			loader:['style-loader', 'css-loader']
 		},
 		{
 			test:/\.less$/,
-			loader:['css-loader','less-loader']
+			loader:['style-loader','css-loader','less-loader']
 		},
 		{
 			test:/\.vue$/,
@@ -28,10 +28,11 @@ module.exports = {
 		},
 		{
 			test: /\.js$|\.jsx$/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015','react','stage-0']
-            }
+			loader: 'babel-loader',
+			exclude: /node_modules/,
+			query: {
+					presets: ['es2015','react','stage-0']
+			}
 		}]
 	},
 	plugins: [
