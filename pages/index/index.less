@@ -1,0 +1,67 @@
+@rem: 0.01rem;
+
+.index-page{
+    width: 750 * @rem;
+    margin: 0 auto;
+    .banner-box{
+        width: 750 * @rem;
+        height: 300 * @rem;
+        background: #ccc;
+        text-align: center;
+        line-height: 300 * @rem;
+        overflow: hidden;
+        position: relative;
+        .ul-box{
+            position: absolute;
+            left: 0;
+            transition: left .5s;
+            li{
+                width: 750 * @rem;
+                height: 300 * @rem;
+                float: left;
+            }
+        }
+        .left{
+            display: block;
+            position: absolute;
+            width: 30 * @rem;
+            height: 30 * @rem;
+            line-height: 30 * @rem;
+            top: 125 * @rem;
+            font-size: 36 * @rem;
+            left: 12 * @rem;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        .right{
+            display: block;
+            position: absolute;
+            width: 30 * @rem;
+            height: 30 * @rem;
+            line-height: 30 * @rem;
+            top: 125 * @rem;
+            font-size: 36 * @rem;
+            right: 12 * @rem;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        .changeBtn{
+            position: absolute;
+            height: 20 * @rem;
+            bottom: 10 * @rem;
+            left: 50%;
+            transform: translate(-50%,0);
+            li{
+                width: 20 * @rem;
+                height: 20 * @rem;
+                float: left;
+                background: #ffffff;
+                border-radius: 50%;
+                margin-right: 5 * @rem;
+            }
+            .current{
+                background: #999999;
+            }
+        }
+    }
+}
