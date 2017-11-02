@@ -13,7 +13,7 @@ const More = ({ match }) => (
     <div>
         <Route exact path={match.url} render={() => (
             <div>
-                <Header />
+                <Header title="更多" />
                 <main style={{ marginTop: "0.88rem" }}>
                     <div className="menu">
                         <Link className="menu-item" to="more/activity">
