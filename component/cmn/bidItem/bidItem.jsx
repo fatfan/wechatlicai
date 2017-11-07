@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "./bidItem.less";
 
 export default class BidItem extends Component {
     render() {
         return (
-            <a className="list-item" href="/webchat/invest/bidDetail.html?bid=383515">
+            <Link className="list-item" to={`/invest/bidDetail/${this.props.bid}`}>
                 <div className="title-container">
                     <div className="title">{this.props.name}</div>
                     <div className="new-tag new-tag-type-4">{this.props.tagname}</div>
@@ -31,10 +32,10 @@ export default class BidItem extends Component {
                     <div className="value">{this.props.rate}%</div>
                     <svg viewBox="0 0 80 80">
                         <circle stroke="#dddddd" strokeWidth="3" fill="transparent" r="36" cx="40" cy="40"></circle>
-                        <circle className="progress-ring" stroke="#FF5A56" strokeWidth="3" fill="transparent" r="36" cx="40" cy="40" style={{ "strokeDasharray": "226.19 226.19", "strokeDashoffset": "7.503763492063495" }}></circle>
+                        <circle className="progress-ring" stroke="#FF5A56" strokeWidth="3" fill="transparent" r="36" cx="40" cy="40" style={{ "strokeDasharray": "226.19 226.19", "strokeDashoffset": (1 - this.props.rate / 100) * 226.19 }}></circle>
                     </svg>
                 </div>
-            </a>)
+            </Link >)
     }
     constructor(props) {
         super(props);

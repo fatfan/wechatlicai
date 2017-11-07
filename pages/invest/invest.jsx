@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { HashRouter as Router, StaticRouter, Route, Link, hashHistory, NavLink, IndexRoute } from 'react-router-dom';
 // import 'whatwg-fetch';
 import fetch from 'isomorphic-fetch'
 
@@ -9,32 +10,36 @@ import "./invest.less";
 import Tabs from "../../component/cmn/tabs/tabs.jsx";
 import Header from "../../component/cmn/header/header.jsx";
 import BidItem from "../../component/cmn/bidItem/bidItem.jsx";
+import BidDetail from "./biddetail/biddetail.jsx";
 
-export default class Index extends Component {
+class Index extends Component {
     render() {
-        return (<div>
-            <Header title="投资" />
-            <main style={{ paddingTop: "0.88rem" }}>
-                <section className="list-container">
-                    {this.state.bidList.map(function (item, i) {
-                        return (
+        return (
+            <div>
+                <Header title="投资" />
+                <main style={{ paddingTop: "0.88rem" }}>
+                    <section className="list-container">
+                        {this.state.bidList.map(function (item, i) {
+                            return (
 
-                            <BidItem key={i} name={item.name} bid={item.bid} apr={item.apr} limit={item.limit} flowmoney={item.flowmoney} tagname={item.tagName} rate={item.rate} />
-                        )
-                    })}
-                </section>
+                                <BidItem key={i} name={item.name} bid={item.bid} apr={item.apr} limit={item.limit} flowmoney={item.flowmoney} tagname={item.tagName} rate={item.rate} />
+                            )
+                        })}
+                    </section>
 
-                <a className="more" href="invest/repaying.html">
-                    <span>已售罄项目</span>
-                    <span className="repaying">{this.state.flowRepayingCount}</span>
-                    <span>个，已还款项目</span>
-                    <span className="repayed">{this.state.flowRepayedCount}</span>
-                    <span>个，点击查看</span>
-                </a>
-            </main>
-            <button onClick={() => { this.refreshList() }}>更新</button>
-            <Tabs cur="1" />
-        </div >)
+                    <a className="more" href="invest/repaying.html">
+                        <span>已售罄项目</span>
+                        <span className="repaying">{this.state.flowRepayingCount}</span>
+                        <span>个，已还款项目</span>
+                        <span className="repayed">{this.state.flowRepayedCount}</span>
+                        <span>个，点击查看</span>
+                    </a>
+                </main>
+                <button onClick={() => { this.refreshList() }}>更新</button>
+                <Tabs cur="1" />
+            </div>
+
+        )
     }
     constructor(props) {
         super(props);
@@ -153,7 +158,12 @@ export default class Index extends Component {
     }
 }
 
-// const Invest = () => (
+const More = ({ match }) => (
+    <div>
+        <Route exact path={match.url} component={Index} />
+        <Route path={`${match.url}/bidDetail/:bid`} component={BidDetail} />
 
-// )
-// export default Invest
+    </div>
+
+)
+export default More
