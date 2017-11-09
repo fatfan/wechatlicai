@@ -1,7 +1,10 @@
-import React,{Component,ReactDOM} from "react";
-import reactDOM,{render} from "react-dom";
-import { Provider,connect } from 'react-redux';
+import React, { Component, ReactDOM } from "react";
+import reactDOM, { render } from "react-dom";
+import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
+// injectTapEventPlugin = require("react-tap-event-plugin");
+// injectTapEventPlugin();
 
 import App from "./app.jsx";
 // import {Demo1,Demo2,Index} from "../component/react-router/demo";
@@ -30,7 +33,7 @@ import App from "./app.jsx";
 
 //  let store = createStore(reduce)
 
- //console.log(store.getState());
+//console.log(store.getState());
 //  function mapStateToProps(state){
 //    return state
 //  }
@@ -39,11 +42,14 @@ import App from "./app.jsx";
 //    mapStateToProps
 //  )(Demo);
 
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+// injectTapEventPlugin();
 
 reactDOM.render(
 	// <Provider store={store}>
 	// 	<De/>
 	// </Provider>,
-  <App/>,
+	<App />,
 	document.getElementById('contain')
 );
