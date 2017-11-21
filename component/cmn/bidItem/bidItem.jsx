@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import "./bidItem.less";
+import tag from "./tag.css";
 
 export default class BidItem extends Component {
     render() {
         return (
             <Link className="list-item" to={`/invest/bidDetail/${this.props.bid}`}>
                 <div className="title-container">
-                    <div className="title">{this.props.name}</div>
+                    <div className={tag.hot + " title"}>{this.props.name}</div>
                     <div className="new-tag new-tag-type-4">{this.props.tagname}</div>
                 </div>
 

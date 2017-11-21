@@ -5,15 +5,14 @@ var entre = {};
 require("babel-core").transform("code", {
 	plugins: ["transform-class-properties"]
 });
-var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	devtool: 'eval',
 	entry: { index: ['./src/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true'] },
 	output: {
-		path: __dirname + "/build",
-		publicPath: '/build/',
-		filename: "[name]-[hash].js"
+		path: __dirname + "/dist",
+		publicPath: '/dist/',
+		filename: "[name].js"
 	},
 	module: {
 		rules: [{
@@ -52,13 +51,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoEmitOnErrorsPlugin(),
-		// https://github.com/ampedandwired/html-webpack-plugin
-		new HtmlWebpackPlugin({
-			filename: 'index.html',
-			template: 'index.html',
-			inject: true
-		}),
+		new webpack.NoEmitOnErrorsPlugin()
 	],
 	resolve: {
 		extensions: ['.vue', '.js', '.jsx', '.json', ' '],

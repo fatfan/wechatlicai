@@ -11,9 +11,9 @@ module.exports = {
 	devtool: 'eval',
 	entry: { index: ['./src/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true'] },
 	output: {
-		path: __dirname + "/build",
-		publicPath: '/build/',
-		filename: "[name]-[hash].js"
+		path: path.resolve(__dirname, '../dist/'),
+		// publicPath: './static/',
+		filename: "./static/js/[name]-[hash].js"
 	},
 	module: {
 		rules: [{
@@ -56,7 +56,7 @@ module.exports = {
 		// https://github.com/ampedandwired/html-webpack-plugin
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
-			template: 'index.html',
+			template: path.resolve(__dirname, '../build/index.tpl.html'),
 			inject: true
 		}),
 	],

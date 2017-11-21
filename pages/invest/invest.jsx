@@ -108,6 +108,7 @@ class Index extends Component {
     componentDidMount() {
         //'//offline-news-api.herokuapp.com/stories'
         var that = this;
+
         fetch('//localhost/webpc/test/get.cgi')
             .then(function (response) {
                 if (response.status >= 400) {

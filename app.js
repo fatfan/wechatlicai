@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var webpackBaseConfig = require('./webpack.config.js');
+var webpackBaseConfig = require('./config/webpack.dev.config.js');
 
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
@@ -21,7 +21,7 @@ var app = express();
 var compiler = webpack(webpackBaseConfig);
 
 app.use(webpackDevMiddleware(compiler, {
-	publicPath: webpackBaseConfig.output.publicPath,
+    publicPath: webpackBaseConfig.output.publicPath,
     noInfo: true,
     stats: {
         colors: true
@@ -31,14 +31,14 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler));
 
 
-app.use('/',express.static(__dirname));
+app.use('/', express.static(__dirname));
 
 //app.listen(3000);
 var http = require('http');
 var reload = require("reload");
 var server = http.createServer(app);
 reload(server, app);
-server.listen(3100, function(){
+server.listen(3100, function () {
     console.log('App (dev) is now running on port 3100!');
 });
 
