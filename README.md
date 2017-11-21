@@ -10,10 +10,23 @@ npm run dev  执行脚本
 
 localhost:3100  打开浏览器查看效果
 
+# 项目发布：
+npm run build
+
 # wechatlicai
 h5 licai react webapp demo
 
-#change log
+# todo
+md ui研究
+redux应用
+登录注册
+开发过程接口调试方法
+
+# change log
+2017.11.21
+完成build项目
+优化项目目录结构
+
 页面多级路由
 获取服务端数据
 根据数据更新视图
