@@ -1,4 +1,21 @@
 {
+  "name": "wechatlicai",
+  "description": "react learning demo project",
+  "version": "0.1.0",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fatfan/wechatlicai.git"
+  },
+  "author": {
+    "name": "fwh",
+    "email": "huaofw@163.com"
+  },
+  "scripts": {
+    "dev": "node sdcm/sdcm.main.dev.js d:\\dev\\webroot",
+    "test": "node sdcm/sdcm.main.js d:\\dev\\webroot",
+    "build": "node build/build.js"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -29,11 +46,5 @@
     "material-ui": "^0.19.4",
     "react-router": "^4.1.2",
     "react-tap-event-plugin": "^3.0.2"
-  },
-  "scripts": {
-    "dev": "node sdcm/sdcm.main.js d:\\dev\\webroot",
-    "build2": "webpack",
-    "build": "node build/build.js"
-  },
-  "license": "ISC"
+  }
 }

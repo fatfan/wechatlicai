@@ -51,6 +51,20 @@ rm(distPath, err => {
         if (err) {
             throw err
         }
+        //TODO：复制src/lib下所有js文件到发布目录dist/static/js/目录下
+        var fs = require('fs');
+        var path = require('path');
+
+        var fileName = "flexible.js";
+
+        var sourceFile = path.join(__dirname, "../src/lib", fileName);
+        var destPath = path.join(__dirname, "../dist/static/js", fileName);
+        console.log(sourceFile)
+        console.log(destPath)
+        var readStream = fs.createReadStream(sourceFile);
+        var writeStream = fs.createWriteStream(destPath);
+        readStream.pipe(writeStream);
+        // console.log("移动完成")
         console.log("build success...")
     })
 })

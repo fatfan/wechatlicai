@@ -1,9 +1,9 @@
 import React, { Component, ReactDOM } from "react";
 import reactDOM, { render } from "react-dom";
 // import 'whatwg-fetch';
+// import 'axios';
 import fetch from 'isomorphic-fetch'
-// import { connect } from 'react-redux'
-// import { BrowserRouter, StaticRouter, Route, Link, hashHistory, NavLink } from 'react-router-dom';
+
 
 import "./login.less";
 
@@ -32,7 +32,7 @@ export default class Index extends Component {
                         </div>
 
                         <a href="javascript:;" type="text" className={this.state.enableLogin ? "u-submit" : "u-submit disable"} onClick={() => { console.log("click"); this.doLogin() }}>登&nbsp;&nbsp;录</a>
-                        <div className="f-fr"><a href="register.html" style={{ "fontSize": "14px", "color": "#4C8CF8", "paddingRight": "15px" }}>注册领取188元红包</a></div>
+                        <div className="f-fr"><a href="#register" style={{ "fontSize": "14px", "color": "#4C8CF8", "paddingRight": "15px" }}>注册领取188元红包</a></div>
                         <div className="f-fl"><a href="getpasswd.html" style={{ "fontSize": "14px", "color": "#666", "paddingLeft": "15px" }}>忘记密码？</a></div>
                     </div>
                 </div>
@@ -49,41 +49,7 @@ export default class Index extends Component {
         }
     }
     componentDidMount() {
-        var startX;
-        var finishX;
 
-        // this.banner.addEventListener('touchstart', (evt) => {
-        //     evt.preventDefault();
-        //     startX = evt.touches[0].pageX;
-        // }, false);
-        // this.banner.addEventListener('touchend', (evt) => {
-        //     finishX = evt.changedTouches[0].pageX;
-        //     if ((finishX - startX) < 0) {
-        //         this.scrollBanner(1);
-        //     }
-        //     if ((finishX - startX) > 0) {
-        //         //alert("向左");
-        //         this.scrollBanner(0);
-        //     }
-        // }, false);
-        // fetch('/users.json')
-        //     .then(function (response) {
-        //         return response.json()
-        //     }).then(function (json) {
-        //         console.log('parsed json', json)
-        //     }).catch(function (ex) {
-        //         console.log('parsing failed', ex)
-        //     });
-        // fetch('//offline-news-api.herokuapp.com/stories')
-        //     .then(function (response) {
-        //         if (response.status >= 400) {
-        //             throw new Error("Bad response from server");
-        //         }
-        //         return response.json();
-        //     })
-        //     .then(function (stories) {
-        //         console.log(stories);
-        //     });
     }
 
     doLogin = (e) => {

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 //引入组件
 import Header from "../../../component/cmn/header/header.jsx";
-// import Tabs from "../../../component/cmn/tabs/tabs.jsx";
-const Activity = ({ match }) => (
+
+const Index = ({ match }) => (
     <div>
         <main style={{ marginTop: "0.88rem" }}>
             <h2>公告列表页</h2>
@@ -15,4 +15,4 @@ const Activity = ({ match }) => (
     </div>
 
 )
-export default Activity
+export default Index

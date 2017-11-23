@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, StaticRouter, Route, Link, hashHistory, NavLink, IndexRoute } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //引入样式
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -11,7 +11,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 //引入组件
 import Header from "../../../component/cmn/header/header.jsx";
-// import Tabs from "../../../component/cmn/tabs/tabs.jsx";
+
 export default class Activity extends Component {
     render() {
         const standardActions = (

@@ -1,23 +1,10 @@
 import React, { Component } from "react";
-import { HashRouter as Router, StaticRouter, Route, Link, hashHistory, NavLink, IndexRoute } from 'react-router-dom';
+// import { HashRouter as Router, StaticRouter, Route, Link, hashHistory, NavLink, IndexRoute } from 'react-router-dom';
 //引入样式
 import "./biddetail.less";
 
 //引入组件
 import Header from "../../../component/cmn/header/header.jsx";
-// import Tabs from "../../../component/cmn/tabs/tabs.jsx";
-const Activity = ({ match }) => (
-    <div>
-        <Header title="标的详情" />
-        <main style={{ marginTop: "0.88rem" }}>
-            <h2>标的详情页{match.params.bid}</h2>
-            <Link className="menu-item" to="/invest">返回</Link>
-        </main>
-    </div>
-
-)
-// export default Activity
-
 
 export default class Index extends Component {
     render() {
@@ -26,21 +13,21 @@ export default class Index extends Component {
         tpl_productTag = (
             <span className="tags f-cb">
                 {
-                    item.isCashQuan!=0
-                    ?<i className="u-tag di"></i>
-                    :""
+                    item.isCashQuan != 0
+                        ? <i className="u-tag di"></i>
+                        : ""
 
                 }
                 {
-                    item.isAprQuan!=0
-                    ?<i className="u-tag xi"></i>
-                    :""
+                    item.isAprQuan != 0
+                        ? <i className="u-tag xi"></i>
+                        : ""
                 }
                 {
                     item.tagsArray && item.tagsArray[0] &&
                     (item.tagsArray[0].tagType == "1"
-                        ?<i className="u-ordinary">{item.tagsArray[0].tagName}</i>
-                        :<i className="u-hot">{item.tagsArray[0].tagName}</i>
+                        ? <i className="u-ordinary">{item.tagsArray[0].tagName}</i>
+                        : <i className="u-hot">{item.tagsArray[0].tagName}</i>
                     )
 
                 }
@@ -86,7 +73,7 @@ export default class Index extends Component {
                     <div className="g-cnt" style={{ "backgroundColor": "#fff" }}>
                         <div className="m-menuItem m-progressBox">
                             <div className="u-progressBar">
-                                <div className="progress J_progress" style={{ "width": this.state.getContent.scale+"%" }}>
+                                <div className="progress J_progress" style={{ "width": this.state.getContent.scale + "%" }}>
                                     <div className="u-tip">
                                         <div className="content"><em>{Math.floor(this.state.getContent.scale)}</em>%</div>
                                         <div className="leg"></div>
@@ -110,9 +97,7 @@ export default class Index extends Component {
                         <div className="u-btn u-btn-1 J_order">立即投资</div>
                     </div>
                 </main>
-
             </div>
-
         )
     }
     constructor(props) {
@@ -133,7 +118,8 @@ export default class Index extends Component {
     componentDidMount() {
         //'//offline-news-api.herokuapp.com/stories'
         var that = this;
-        fetch('//localhost/webpc/test/biddetail.cgi')
+        console.log(this.props.match.params.bid);
+        fetch('/wechatlicai/src/datapi/invest/biddetail.cgi')
             .then(function (response) {
                 if (response.status >= 400) {
                     throw new Error("Bad response from server");
@@ -143,8 +129,6 @@ export default class Index extends Component {
             .then(function (rslt) {
                 console.log(rslt);
                 if (rslt.code == 200) {
-                    // this.state.bidList = rslt.list;
-
                     that.setState({
                         getContent: rslt.getContent
                     });

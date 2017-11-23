@@ -5,6 +5,7 @@ import reactDOM, { render } from "react-dom";
 // import { connect } from 'react-redux'
 // import { BrowserRouter, StaticRouter, Route, Link, hashHistory, NavLink } from 'react-router-dom';
 
+//引入样式
 import "./index.less";
 
 //引入组件
@@ -61,24 +62,6 @@ export default class Index extends Component {
                 this.scrollBanner(0);
             }
         }, false);
-        // fetch('/users.json')
-        //     .then(function (response) {
-        //         return response.json()
-        //     }).then(function (json) {
-        //         console.log('parsed json', json)
-        //     }).catch(function (ex) {
-        //         console.log('parsing failed', ex)
-        //     });
-        // fetch('//offline-news-api.herokuapp.com/stories')
-        //     .then(function (response) {
-        //         if (response.status >= 400) {
-        //             throw new Error("Bad response from server");
-        //         }
-        //         return response.json();
-        //     })
-        //     .then(function (stories) {
-        //         console.log(stories);
-        //     });
     }
     scrollBanner = (value) => {
         this.setState((prevState, props) => {

@@ -9,7 +9,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	devtool: 'eval',
-	entry: { index: ['./src/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true'] },
+	entry: { index: ['./src/index.js'] },
 	output: {
 		path: path.resolve(__dirname, '../dist/'),
 		// publicPath: './static/',
@@ -51,8 +51,8 @@ module.exports = {
 		}]
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoEmitOnErrorsPlugin(),
+		// new webpack.HotModuleReplacementPlugin(),
+		// new webpack.NoEmitOnErrorsPlugin(),
 		// https://github.com/ampedandwired/html-webpack-plugin
 		new HtmlWebpackPlugin({
 			filename: 'index.html',

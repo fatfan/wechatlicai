@@ -1,5 +1,6 @@
 import React from "react";
-import { HashRouter as Router, StaticRouter, Route, Link, hashHistory, NavLink, IndexRoute } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+// import { HashRouter as Router, StaticRouter, Route, Link, hashHistory, NavLink, IndexRoute } from 'react-router-dom';
 
 //引入样式
 import "./more.less";
