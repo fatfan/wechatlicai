@@ -1,17 +1,23 @@
 # 新建项目
-git clone https://github.com/LemonTree-shine/react.git   克隆脚手架
+git clone https://github.com/fatfan/wechatlicai.git
 
 npm i    安装 NPM 依赖
 
 注意：npm安装依赖失败的话请安装淘宝镜像$ npm install -g cnpm --registry=https://registry.npm.taobao.org，
 然后使用cnpm i 安装依赖
 
+复制sdcm到项目根目录
+
 npm run dev  执行脚本
 
-localhost:3100  打开浏览器查看效果
+http://localhost/wechatlicai/  打开浏览器查看效果
 
 # 项目发布：
 npm run build
+
+# 运行测试：
+npm run test
+然后访问：http://localhost/wechatlicai/dist/#/
 
 # wechatlicai
 h5 licai react webapp demo
