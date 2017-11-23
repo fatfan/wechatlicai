@@ -19,7 +19,7 @@ module.exports = {
 		rules: [{
 			test: /\.css$/,
 			// loader: ['style-loader', 'css-loader']
-			loader: "style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]"	//css模块化，定制类名
+			loader: "style-loader!css-loader?modules&localIdentName=[hash:base64:16]"	//css模块化，定制类名
 		},
 		{
 			test: /\.less$/,

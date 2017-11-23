@@ -31,7 +31,7 @@
     "react-tap-event-plugin": "^3.0.2"
   },
   "scripts": {
-    "dev": "node app.js",
+    "dev": "node sdcm/sdcm.main.js d:\\dev\\webroot",
     "build2": "webpack",
     "build": "node build/build.js"
   },

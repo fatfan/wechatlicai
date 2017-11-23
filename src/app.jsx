@@ -12,7 +12,8 @@ import Index from "./pages/index/index.jsx";
 import Invest from "./pages/invest/invest.jsx";
 import Mine from "./pages/mine/mine.jsx";
 import More from "./pages/more/more.jsx";
-import Activity from "./pages/more/activity/activity.jsx";
+import Login from "./pages/login/login.jsx";
+// import Activity from "./pages/more/activity/activity.jsx";
 
 
 export default class App extends Component {
@@ -22,18 +23,13 @@ export default class App extends Component {
 			// <Tabs />
 			<Router>
 				<div className="wrap">
-					<Route exact path="/" component={Index}>
-
-					</Route>
+					<Route exact path="/" component={Index}></Route>
 					<Route path="/invest" component={Invest}></Route>
 					<Route path="/mine" component={Mine}></Route>
-					<Route path="/more" component={More}>
-
-					</Route>
-					{/* <Tabs /> */}
+					<Route path="/more" component={More}></Route>
+					<Route path="/login" component={Login}></Route>
 				</div>
 			</Router>
-
 		);
 	}
 	componentDidMount() {

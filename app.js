@@ -33,14 +33,14 @@ app.use(webpackHotMiddleware(compiler));
 
 app.use('/', express.static(__dirname));
 
-//app.listen(3000);
-var http = require('http');
-var reload = require("reload");
-var server = http.createServer(app);
-reload(server, app);
-server.listen(3100, function () {
-    console.log('App (dev) is now running on port 3100!');
-});
+app.listen(3000);
+// var http = require('http');
+// var reload = require("reload");
+// var server = http.createServer(app);
+// reload(server, app);
+// server.listen(3100, function () {
+//     console.log('App (dev) is now running on port 3100!');
+// });
 
 
 
