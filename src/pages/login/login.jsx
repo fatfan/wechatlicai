@@ -7,6 +7,10 @@ import fetch from 'isomorphic-fetch'
 
 import "./login.less";
 
+// less模块化方法
+// import style from "./login.less";
+// console.log(style);
+
 //引入组件
 import Header from "../../component/cmn/header/header.jsx";
 import Tabs from "../../component/cmn/tabs/tabs.jsx";

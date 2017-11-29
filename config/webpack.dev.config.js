@@ -7,7 +7,7 @@ require("babel-core").transform("code", {
 });
 
 module.exports = {
-	devtool: 'eval',
+	devtool: 'cheap-module-eval-source-map',
 	entry: { index: ['./src/index.js', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=10000&reload=true'] },
 	output: {
 		path: __dirname + "/dist",
@@ -29,7 +29,7 @@ module.exports = {
 				}, {
 					loader: "css-loader",
 					options: {
-						modules: false	//暂未找到支持less的模块化方法
+						modules: false	//改为true即可支持less模块化
 					}
 				}, {
 					loader: "less-loader"
