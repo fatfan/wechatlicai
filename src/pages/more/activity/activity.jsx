@@ -13,6 +13,26 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Header from "../../../component/cmn/header/header.jsx";
 
 export default class Activity extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            open: false
+        };
+    }
+
+    componentDidMount() {
+    }
+
+    handleRequestClose() {
+        this.setState({
+            open: false,
+        });
+    }
+    handleTouchTap = () => {
+        this.setState({
+            open: true,
+        });
+    }
     render() {
         const standardActions = (
             <FlatButton
@@ -23,8 +43,8 @@ export default class Activity extends Component {
         );
         return (
             <div>
+                <Header title="活动专区" goback="goback" address="/more"/>
                 <main style={{ marginTop: "0.88rem" }}>
-                    <h2>活动专区详情页</h2>
                     <Link className="menu-item" to="/more">返回</Link>
                     <MuiThemeProvider>
                         <div>
@@ -61,27 +81,5 @@ export default class Activity extends Component {
                 </main>
             </div>
         )
-    }
-    constructor(props, context) {
-        super(props, context);
-        this.state = {
-            open: false
-        };
-    }
-
-    componentDidMount() {
-        //'//offline-news-api.herokuapp.com/stories'
-
-    }
-
-    handleRequestClose() {
-        this.setState({
-            open: false,
-        });
-    }
-    handleTouchTap = () => {
-        this.setState({
-            open: true,
-        });
     }
 }

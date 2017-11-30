@@ -1,4 +1,4 @@
-var ghost = require(process.argv[2]+'/webchat/cfg/ghost.js'); 
+var ghost = require('../cfg/ghost.js'); 
 function ClassAPI() { }
 ClassAPI.prototype.construct = function() {};
 ClassAPI.extend = function(def) {

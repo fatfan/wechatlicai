@@ -43,20 +43,23 @@
         font-size: inherit;
         text-decoration: inherit;
     }
+    .icon-right-arrow + .menu-right {
+        right: 60 * @rem;
+    }
 }
 
 .icon {
     display: inline-block;
     vertical-align: top;
 
-    background-image: url(https://icdn.cnaidai.com/aidai/webchat/static/img/sprite.png);
+    background-image: url(/assets/css/sprite.png);
     background-repeat: no-repeat;
     background-size: 756 * @rem 260 * @rem;
 }
 
 .icon-position(@x, @y, @width, @height) {
     margin-top: (98 - @height) / 2 * @rem;
-    margin-right: (40 - @width) * @rem;
+    margin-right: (50 - @width) * @rem;
 
     height: @height * @rem;
     width: @width * @rem;
@@ -101,7 +104,7 @@
 }
 
 .icon-1 {
-    background-image: url(https://icdn.cnaidai.com/aidai/webchat/static/img/mine/mineIndex.png);
+    background-image: url("/more/mineIndex.png");
     background-repeat: no-repeat;
     background-size: 200 * @rem 110 * @rem;
 }
