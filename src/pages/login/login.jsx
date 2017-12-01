@@ -4,8 +4,8 @@ import reactDOM, { render } from "react-dom";
 // import 'axios';
 import fetch from 'isomorphic-fetch'
 
-
-import "./login.less";
+// 引入样式
+import style from "./login.less";
 
 // less模块化方法
 // import style from "./login.less";
@@ -17,7 +17,7 @@ import Tabs from "../../component/cmn/tabs/tabs.jsx";
 
 export default class Index extends Component {
     render() {
-        return (<div className="index-page" ref="aaa">
+        return (<div className={style['page']} ref="aaa">
             <Header title="登录" />
             <main style={{ paddingTop: "0.88rem" }}>
                 <div className="g-cnt">

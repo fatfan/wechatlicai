@@ -3,12 +3,12 @@ import reactDOM, { render } from 'react-dom'
 import { HashRouter as Router, StaticRouter, Route, Link, hashHistory, NavLink, IndexRoute } from 'react-router-dom'
 
 // 引入公共样式
-import './assets/css/app.less'
-import sytle from './assets/css/normalize.css'
-// import "./component/cmn/tabs/tabs.less";
+import './assets/css/normalize.css'
+import style from './assets/css/app.less'
+// import "./component/cmn/tabs/tabs.less"
 
 // 引入组件
-// import Tabs from "./component/cmn/tabs/tabs.jsx";
+// import Tabs from "./component/cmn/tabs/tabs.jsx"
 import Index from './pages/index/index.jsx'
 import Invest from './pages/invest/invest.jsx'
 import Mine from './pages/mine/mine.jsx'
@@ -20,7 +20,7 @@ export default class App extends Component {
   render () {
     return (
       <Router>
-        <div className="wrap">
+        <div className={style['wrap']}>
           <Route exact path="/" component={Index}></Route>
           <Route path="/invest" component={Invest}></Route>
           <Route path="/mine" component={Mine}></Route>

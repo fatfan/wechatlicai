@@ -5,7 +5,7 @@ import reactDOM, { render } from "react-dom";
 import fetch from 'isomorphic-fetch'
 
 
-import "./register.less";
+import style from "./register.less";
 
 //引入组件
 import Header from "../../component/cmn/header/header.jsx";
@@ -13,7 +13,7 @@ import Header from "../../component/cmn/header/header.jsx";
 
 export default class Index extends Component {
     render() {
-        return (<div className="index-page" ref="aaa">
+        return (<div className={"g-wp "+style['page']} ref="aaa">
             <Header title="注册" />
             <main style={{ paddingTop: "0.88rem" }}>
                 <div className="g-register">

@@ -1,12 +1,12 @@
-import React, { Component, ReactDOM } from "react";
-import reactDOM, { render } from "react-dom";
-import { Provider, connect } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import React, { Component, ReactDOM } from 'react'
+import reactDOM, { render } from 'react-dom'
+import { Provider, connect } from 'react-redux'
+import { createStore, combineReducers } from 'redux'
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // injectTapEventPlugin = require("react-tap-event-plugin");
 // injectTapEventPlugin();
 
-import App from "./app.jsx";
+import App from './app.jsx'
 // import {Demo1,Demo2,Index} from "../component/react-router/demo";
 // import Demo from "../component/demo1/demo1";
 // import Demo3 from "../component/demo3/demo";
@@ -26,14 +26,13 @@ import App from "./app.jsx";
 //    ]
 //  }
 
-
 //  function reduce(state=defaultState, active) {
 //    return state
 //  }
 
 //  let store = createStore(reduce)
 
-//console.log(store.getState());
+// console.log(store.getState());
 //  function mapStateToProps(state){
 //    return state
 //  }
@@ -47,9 +46,9 @@ import App from "./app.jsx";
 // injectTapEventPlugin();
 
 reactDOM.render(
-	// <Provider store={store}>
-	// 	<De/>
-	// </Provider>,
-	<App />,
-	document.getElementById('contain')
-);
+  // <Provider store={store}>
+  // <De/>
+  // </Provider>,
+  <App />,
+  document.getElementById('contain')
+)

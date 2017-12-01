@@ -17,12 +17,12 @@ module.exports = {
   module: {
     rules: [{
       test: /\.(png|jpg)$/,
-      loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
+      loader: 'url-loader?limit=192&name=images/[hash:8].[name].[ext]'
     },
     {
       test: /\.css$/,
       // loader: ['style-loader', 'css-loader']
-      loader: 'style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]' // css模块化，定制类名
+      loader: 'style-loader!css-loader?modules&sourceMap&localIdentName=[local]-[hash:base64:16]' // css模块化，定制类名
     },
     {
       test: /\.less$/,
@@ -33,7 +33,9 @@ module.exports = {
         }, {
           loader: 'css-loader',
           options: {
-            modules: true // 改为true即可支持less模块化
+            modules: true, // 改为true即可支持less模块化
+            sourceMap: true,
+            localIdentName: '[local]-[hash:8]'
           }
         }, {
           loader: 'less-loader'

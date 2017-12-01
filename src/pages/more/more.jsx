@@ -10,6 +10,7 @@ import Header from '../../component/cmn/header/header.jsx'
 import Tabs from '../../component/cmn/tabs/tabs.jsx'
 import Activity from './activity/activity.jsx'
 import Notice from './notice/notice.jsx'
+import Setting from './setting/setting.jsx'
 const More = ({ match }) => (
   <div>
     <Route exact path={match.url} render={() => (
@@ -43,16 +44,16 @@ const More = ({ match }) => (
           </div>
 
           <div className={styles['menu']}>
-            <a className={styles['menu-item']} href="help.html">
+            <a className={styles['menu-item']} to="more/help">
               <i className={styles['icon'] + ' ' + styles['icon-help']}></i>
               <span>帮助</span>
               <i className={styles['icon-1'] + ' ' + styles['icon-right-arrow']}></i>
             </a>
-            <a className={styles['menu-item']} href="install.html">
+            <Link className={styles['menu-item']} to="more/setting">
               <i className={styles['icon'] + ' ' + styles['icon-settings']}></i>
               <span>设置</span>
               <i className={styles['icon-1'] + ' ' + styles['icon-right-arrow']}></i>
-            </a>
+            </Link>
           </div>
 
           <div className={styles['menu']}>
@@ -80,6 +81,7 @@ const More = ({ match }) => (
     )} />
     <Route path={`${match.url}/activity`} component={Activity} />
     <Route path={`${match.url}/notice`} component={Notice} />
+    <Route path={`${match.url}/setting`} component={Setting} />
   </div>
 
 )

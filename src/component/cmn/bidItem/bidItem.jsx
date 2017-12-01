@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './bidItem.less';
-import tag from './tag.css';
+import './bidItem.less'
+import tag from './tag.css'
 
 export default class BidItem extends Component {
   render () {
@@ -40,10 +40,10 @@ export default class BidItem extends Component {
   }
   constructor (props) {
     super(props)
-        this.state = {
+    this.state = {
       date: new Date()
     }
-    }
+  }
 
   componentDidMount () {
     // '//offline-news-api.herokuapp.com/stories'

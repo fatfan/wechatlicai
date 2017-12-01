@@ -6,17 +6,17 @@ import reactDOM, { render } from "react-dom";
 // import { BrowserRouter, StaticRouter, Route, Link, hashHistory, NavLink } from 'react-router-dom';
 
 //引入样式
-import "./index.less";
+import style from "./index.less";
 
 //引入组件
 import Tabs from "../../component/cmn/tabs/tabs.jsx";
 
 export default class Index extends Component {
     render() {
-        return (<div className="index-page" ref="aaa">
+        return (<div className={style['page']} ref="aaa">
             <main>
-                <div className="banner-box" ref={el => { this.banner = el }}>
-                    <ul className="ul-box" ref={el => { this.ulBox = el }} style={{
+                <div className={style['banner-box']} ref={el => { this.banner = el }}>
+                    <ul className={style['ul-box']} ref={el => { this.ulBox = el }} style={{
                         width: this.state.list.length * 7.5 + "rem",
                         height: "3rem",
                         left: this.state.index * 7.5 + "rem"
@@ -25,13 +25,13 @@ export default class Index extends Component {
                             return <li key={index}>{value}</li>
                         })}
                     </ul>
-                    <ul className="changeBtn">
+                    <ul className={style['changeBtn']}>
                         {this.state.list.map((value, index) => {
-                            return <li className={Math.abs(this.state.index) == index ? "current" : ""} key={index}></li>
+                            return <li className={Math.abs(this.state.index) == index ? style['current'] : ""} key={index}></li>
                         })}
                     </ul>
-                    <a className="left" onClick={() => { this.scrollBanner(0) }}>{"<"}</a>
-                    <a className="right" onClick={() => { this.scrollBanner(1) }}>{">"}</a>
+                    <a className={style['left']} onClick={() => { this.scrollBanner(0) }}>{"<"}</a>
+                    <a className={style['right']} onClick={() => { this.scrollBanner(1) }}>{">"}</a>
                 </div>
             </main>
             <Tabs cur="0" />
