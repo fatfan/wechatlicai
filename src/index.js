@@ -1,54 +1,37 @@
-import React, { Component, ReactDOM } from 'react'
-import reactDOM, { render } from 'react-dom'
-import { Provider, connect } from 'react-redux'
-import { createStore, combineReducers } from 'redux'
-// import injectTapEventPlugin from 'react-tap-event-plugin';
-// injectTapEventPlugin = require("react-tap-event-plugin");
-// injectTapEventPlugin();
+import React from 'react'
+import reactDOM from 'react-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
-import App from './app.jsx'
-// import {Demo1,Demo2,Index} from "../component/react-router/demo";
-// import Demo from "../component/demo1/demo1";
-// import Demo3 from "../component/demo3/demo";
+import './lib/flexible'
 
-// import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink } from 'react-router-dom';
+import './assets/css/normalize.css'
+import './assets/css/app.less'
 
-//  var defaultState = {
-//    todos: [
-//      {
-//        text: 'Consider using Redux',
-//        completed: true,
-//      },
-//      {
-//        text: 'Keep all state in a single tree',
-//        completed: false
-//      }
-//    ]
-//  }
+import AppSwitch from 'src/component/app-switch'
 
-//  function reduce(state=defaultState, active) {
-//    return state
-//  }
+import HomeRouter from 'src/pages/home'
+import { InvestRouter } from 'src/pages/invest'
+import { MineRouter } from 'src/pages/mine'
+import { MoreRouter } from 'src/pages/more'
+import Login from 'src/pages/login'
+import Register from 'src/pages/register'
 
-//  let store = createStore(reduce)
-
-// console.log(store.getState());
-//  function mapStateToProps(state){
-//    return state
-//  }
-
-//  const De = connect(
-//    mapStateToProps
-//  )(Demo);
-
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-// injectTapEventPlugin();
+export default function App() {
+    return (
+        <Router>
+            <AppSwitch>
+                <Route exact path="/:tab(|invest|mine|more)" component={HomeRouter} />
+                <Route path="/invest" component={InvestRouter} />
+                <Route path="/mine" component={MineRouter} />
+                <Route path="/more" component={MoreRouter} />
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
+            </AppSwitch>
+        </Router>
+    )
+}
 
 reactDOM.render(
-  // <Provider store={store}>
-  // <De/>
-  // </Provider>,
-  <App />,
-  document.getElementById('contain')
+    <App />,
+    document.getElementById('app')
 )

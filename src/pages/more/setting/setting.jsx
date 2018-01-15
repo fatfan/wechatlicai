@@ -1,26 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-// 引入样式
-import style from '../../../assets/css/app.less'
-import pageStyle from './setting.less'
+import React, { Component } from 'react'
 
-// 引入组件
-import Header from '../../../component/cmn/header/header.jsx'
+import { Page, Header, Main } from 'src/component/page'
 
-const Index = ({ match }) => (
-  <div className={pageStyle['page']}>
-    <Header title="设置" goback="goback" address="/more"/>
-    <main className={style['wrap']} style={{ marginTop: '0.88rem' }}>
-      <h2>设置</h2>
-      <Link className="menu-item" to="/more">返回</Link>
-      <div className={style['m-listMenu']}>
-        <i className="icon"></i>
-        <span className={style['title']}>活动专区</span>
-        <i className="icon "></i>
-      </div>
-      <div className={style['title']}>aaa</div>
-    </main>
-  </div>
+import './setting.less'
 
-)
-export default Index
+export default class Setting extends Component {
+    render() {
+        return (
+            <Page>
+                <Header title='设置' />
+
+                <Main>
+                    <div styleName='menu'>
+                        <a styleName='menu-item' href='changeRegisterPassword.html'>
+                            <p className='u-tit-install f-fl'>修改登录密码</p>
+                            <i styleName='icon-1 icon-right-arrow' />
+                        </a>
+                        <a styleName='menu-item' href='changePayPassword.html'>
+                            <p className='u-tit-install f-fl'>修改支付密码</p>
+                            <i styleName='icon-1 icon-right-arrow' />
+                        </a>
+                        <a styleName='menu-item' className='J_pwd' href='javascript:;'>
+                            <p className='u-tit-install f-fl'>找回支付密码</p>
+                            <i styleName='icon-1 icon-right-arrow' />
+                        </a>
+                    </div>
+                    <div styleName='menu'>
+                        <a styleName='menu-item' href='contact.html'>
+                            <p className='u-tit-install f-fl'>联系我们</p>
+                            <i styleName='icon-1 icon-right-arrow' />
+                        </a>
+                    </div>
+                    <div styleName='menu'>
+                        <a styleName='menu-item' style={{ paddingLeft: '0rem' }}>
+                            <p styleName='u-button-install'>退出</p>
+                        </a>
+                    </div>
+                </Main>
+
+            </Page >
+        )
+    }
+}

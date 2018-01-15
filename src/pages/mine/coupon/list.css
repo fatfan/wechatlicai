@@ -1,0 +1,184 @@
+section.m-coupon-list {
+  background-color: #f1f1f1;
+}
+.mine-coupon {
+  overflow: visible;
+}
+.mine-coupon .m-hd .u-ruleBtn {
+  position: absolute;
+  top: 50%;
+  right: 0.15rem;
+  width: 0.39rem;
+  height: 0.375rem;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  background: url(https://icdn.cnaidai.com/aidai/webchat/static/img/mine/couponBg.png) no-repeat -0.06rem -13.62rem;
+  -webkit-background-size: 7.02rem 16.5975rem;
+  background-size: 7.02rem 16.5975rem;
+  font-size: 0.2775rem;
+}
+.m-couponItem {
+  width: 6.9rem;
+  height: 2.05rem;
+  margin: 0.195rem auto;
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px 0 rgba(233, 233, 233, 0.5);
+}
+.mine-coupon .m-coupon-list .u-coupon > div:nth-child(1) {
+  padding-bottom: 0.3rem;
+}
+.mine-coupon .m-coupon-list .u-coupon > div:nth-child(2) {
+  height: 0.69rem;
+  line-height: 0.6rem;
+}
+.mine-coupon .m-coupon-list .u-couponNum {
+  float: left;
+  margin: 0.345rem 0 0 0.6675rem;
+  font-size: 0.5625rem;
+  color: #FF5A56;
+}
+.mine-coupon .m-coupon-list .u-couponNum i {
+  margin-right: 0.075rem;
+  font-size: 0.3rem;
+}
+.mine-coupon .m-coupon-list .u-couponRules {
+  float: left;
+  font-size: 0.21rem;
+  color: #333;
+  margin: 0.825rem 0 0 0.15rem;
+}
+.mine-coupon .m-coupon-list .u-couponName {
+  float: right;
+  margin: 0.48rem 0.48rem 0 0;
+  font-size: 0.36rem;
+}
+.mine-coupon .m-coupon-list .u-couponTime {
+  margin-left: 0.27rem;
+  font-size: 0.24rem;
+  color: #666;
+}
+.mine-coupon .m-coupon-list .u-coupon1,
+.mine-coupon .m-coupon-list .u-coupon2 {
+  background-position: -0.06rem -11.3475rem;
+  color: #3d98be;
+}
+/*新手券、体验券*/
+.mine-coupon .m-coupon-list .u-coupon3,
+.mine-coupon .m-coupon-list .u-coupon6 {
+  background-position: -0.06rem -4.5675rem;
+  color: #cd58ca;
+}
+/*抵扣券、兑换券*/
+.mine-coupon .m-coupon-list .u-coupon4 {
+  background-position: -0.06rem -2.31rem;
+  color: #d19a04;
+}
+/*加息券*/
+.mine-coupon .m-coupon-list .u-coupon5,
+.mine-coupon .m-coupon-list .u-coupon7 {
+  background-position: -0.06rem -0.0525rem;
+  color: #db6a7e;
+}
+/*现金券、红包券*/
+.mine-coupon .m-coupon-list .u-coupon8 {
+  background-position: -0.06rem -14.22rem;
+  color: #608dff;
+}
+/*新抵扣券*/
+.mine-coupon .m-coupon-list .u-coupon9 {
+  background-position: -0.06rem -6.825rem;
+  color: #d1cfd0;
+}
+/*已过期*/
+.mine-coupon .m-coupon-list .u-coupon10 {
+  background-position: -0.06rem -9.0825rem;
+  color: #d1cfd0;
+}
+/*已使用*/
+.m-prize-coupon {
+  width: 1.575rem;
+  height: 1.9575rem;
+  padding: 0 0.075rem;
+  margin: 0.2175rem 0;
+  border-right: 1px solid #e8e8e8;
+}
+.m-prize-coupon p {
+  padding-top: 0.4125rem;
+  text-align: center;
+  font-size: 0.5625rem;
+  color: #FF5A56;
+}
+.m-prize-coupon span {
+  font-size: 0.3rem;
+}
+.m-prize-coupon p.u-region {
+  padding-top: 0rem;
+  font-size: 0.21rem;
+  color: #afafaf;
+}
+.m-name-coupon {
+  padding: 0.3rem 0 0.3rem 0.3rem;
+}
+.u-name-coupon {
+  padding-bottom: 0.165rem;
+  font-size: 0.3rem;
+  color: #333;
+}
+.u-xi-coupon {
+  padding-top: 0.18rem;
+}
+.u-cash-coupon {
+  padding-top: 0.375rem;
+}
+.u-rule-coupon {
+  padding-bottom: 0.0375rem;
+  font-size: 0.24rem;
+  color: #666;
+}
+.u-time-coupon {
+  font-size: 0.225rem;
+  color: #999;
+}
+.m-use-coupon {
+  width: 0.84rem;
+  padding: 0.4275rem 0;
+  background: #FF5A56;
+}
+.m-use-coupon p {
+  font-size: 0.2625rem;
+  color: #fff;
+  text-align: center;
+}
+.m-used-coupon p {
+  color: #afafaf;
+}
+.u-used-coupon {
+  position: relative;
+}
+.more {
+  display: none;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  height: 0.36rem;
+  color: #999999;
+  font-size: 0.26rem;
+  line-height: 0.36rem;
+  text-align: center;
+}
+.more span {
+  margin-right: 0.2rem;
+  padding-right: 0.2rem;
+  border-right: 4px solid #E8E8E8;
+}
+.more .link-used {
+  color: #4c8cf8;
+}
+.ofh {
+  overflow: hidden;
+}
+.f-fl {
+  float: left;
+}
+.f-fr {
+  float: right;
+}

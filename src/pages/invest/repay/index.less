@@ -1,0 +1,103 @@
+@rem: 0.01rem;
+@tab-column-width: 375 * @rem;
+
+.page{
+    .pagination-container {
+        position: relative;
+
+        height: 88 * @rem;
+        width: 750 * @rem;
+
+        background-color: #fff;
+
+        z-index: 10;
+    }
+
+    .pagination {
+        height: 88 * @rem;
+
+        .pagination-bullet {
+            background: transparent;
+
+            display: inline-block;
+            vertical-align: top;
+
+            position: relative;
+            width: @tab-column-width;
+            height: 88 * @rem;
+            opacity: 1;
+
+            color: #999;
+            font-size: 30 * @rem;
+            line-height: 88 * @rem;
+            text-align: center;
+
+            &.active {
+                color: #333;
+            }
+        }
+    }
+
+    .indicator-wrapper {
+        position: absolute;
+        bottom: 0;
+
+        height: 6 * @rem;
+        width: 100%;
+
+        line-height: 0;
+        overflow: hidden;
+
+
+        .indicator {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            @width: 80 * @rem;
+
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 (@tab-column-width - @width) / 2;
+
+            background: #FE4646;
+
+            width: @width;
+            height: 100%;
+            transition: all .5s ease;
+        }
+    }
+
+    .swiper-container {
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+
+        .swiper-wrapper{
+            position: absolute;
+            top:0;
+            left: 0;
+
+            width: 1500 * @rem;;
+            height: 100%;
+            z-index: 1;
+            overflow-y: hidden;
+            transition: all .5s ease;
+
+            .swiper-slide{
+                box-sizing: border-box;
+                float: left;
+                width: 750* @rem;
+                height: 100%;
+
+                // padding-top: 0.88rem;
+
+                overflow-y: auto;
+
+                .list-item *:not(.new-tag) {
+                    color: #afafaf !important;
+                }
+            }
+        }
+    }
+}

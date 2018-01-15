@@ -1,0 +1,365 @@
+// compress: true, sourceMap: true, ieCompat: false, autoprefixer: Chrome 37; iOS 7
+
+@rem: 0.01rem;
+
+.header-right {
+    position: absolute;
+    top: (88 - 50) / 2 * @rem;
+    right: 20 * @rem;
+    bottom: 0;
+
+    display: block;
+    height: 50 * @rem;
+    width: 44 * @rem;
+
+    background: url(https://icdn.cnaidai.com/aidai/webchat/static/img/mine/mineIndex.png) no-repeat;
+    background-position: -102 * @rem -1 * @rem;
+    background-size: 200 * @rem 110 * @rem;
+}
+
+.menu {
+    background-color: #fff;
+}
+
+.user-info {
+    box-sizing: border-box;
+    position: relative;
+
+    display: block;
+    height: 170 * @rem;
+
+    background-color: #fff;
+    border-bottom: 2px solid #eaeaea;
+
+    .avatar {
+        position: absolute;
+        top: 24 * @rem;
+        left: 32 * @rem;
+
+        height: 120 * @rem;
+        width: 120 * @rem;
+
+        border-radius: 50%;
+    }
+
+    .username {
+        position: absolute;
+        top: 44 * @rem;
+        left: 180 * @rem;
+
+        color: #333;
+        font-size: 30 * @rem;
+    }
+
+    .vip {
+        position: absolute;
+        top: 102 * @rem;
+        left: 180 * @rem;
+
+        background-position: -162 * @rem -42 * @rem;
+
+        padding-left: 36 * @rem;
+
+        color: #999;
+        font-size: 24 * @rem;
+        text-decoration: none;
+    }
+
+    .check-in {
+        box-sizing: border-box;
+
+        position: absolute;
+        top: 56 * @rem;
+        right: 72 * @rem;
+
+        height: 52 * @rem;
+
+        border: 2px solid #fe623c;
+        border-radius: 8 * @rem;
+
+        padding: 0 16 * @rem;
+
+        color: #fe623c;
+        line-height: 48 * @rem;
+
+        &[disabled] {
+            color: #999;
+            border-color: #999;
+        }
+    }
+}
+
+.section-asset {
+    box-sizing: border-box;
+    position: relative;
+
+    display: block;
+    height: 96 * @rem;
+
+    background-color: #fff;
+    border-bottom: 2px solid #eaeaea;
+
+    padding-left: 38 * @rem;
+
+    color: #999;
+    font-size: 28 * @rem;
+    line-height: 96 * @rem;
+    text-decoration: none;
+
+    .value {
+        margin-left: 8 * @rem;
+
+        color: #333;
+    }
+}
+
+.menu {
+    margin-top: 20 * @rem;
+
+    border-bottom: 1px solid #dadada;
+
+    font-size: 0;
+
+    &.menu-slim {
+        margin-top: 0;
+
+        height: 96 * @rem;
+
+        line-height: 96 * @rem;
+
+        .menu-item {
+            font-size: 30 * @rem;
+
+            padding-left: 76 * @rem;
+        }
+    }
+
+    .menu-item {
+        box-sizing: border-box;
+
+        position: relative;
+
+        display: inline-block;
+        vertical-align: top;
+
+        height: 100%;
+        width: 50%;
+
+        padding-left: 108 * @rem;
+
+        color: #333;
+        font-size: 28 * @rem;
+        text-decoration: none;
+
+        &:not(:last-child)::after {
+            content: "";
+
+            position: absolute;
+            top: 20 * @rem;
+            right: 0;
+            bottom: 20 * @rem;
+
+            border-right: 1px solid #dadada;
+        }
+
+        .title {
+            position: absolute;
+            top: 24 * @rem;
+            left: 108 * @rem;
+
+            margin: 0;
+
+            line-height: 1;
+        }
+
+        .subtitle {
+            position: absolute;
+            top: 70 * @rem;
+            left: 108 * @rem;
+
+            margin: 0;
+
+            color: #999;
+            line-height: 1;
+        }
+    }
+}
+
+.menu-item-recharge {
+    color: #ff3829 !important;
+}
+
+.icon-recharge, .icon-withdraw {
+    display: inline-block;
+    vertical-align: top;
+
+    margin-top: (96 - 48) / 2 * @rem;
+    margin-right: 20 * @rem;
+
+    width: 45 * @rem;
+    height: 48 * @rem;
+
+    background: url(https://icdn.cnaidai.com/aidai/webchat/static/img/mine/mineIndex2.png) no-repeat;
+    background-size: 90 * @rem 48 * @rem;
+}
+
+.icon-withdraw {
+    background-position-x: -45 * @rem;
+}
+
+.menu-row {
+    position: relative;
+
+    height: 128 * @rem;
+
+    line-height: 128 * @rem;
+
+    &:not(:last-child)::after {
+        content: "";
+
+        position: absolute;
+        right: 20 * @rem;
+        bottom: 0;
+        left: 20 * @rem;
+
+        border-bottom: 1px solid #dadada;
+    }
+}
+
+.icon-1 {
+    background-image: url(https://icdn.cnaidai.com/aidai/webchat/static/img/mine/mineIndex.png);
+    background-repeat: no-repeat;
+    background-size: 200 * @rem 110 * @rem;
+}
+
+.icon-balance {
+    position: absolute;
+    top: (128 - 47) / 2 * @rem;
+    left: 40 * @rem;
+
+    display: block;
+    height: 47 * @rem;
+    width: 47 * @rem;
+    background-position: -6 * @rem -6 * @rem;
+}
+
+.icon-collect {
+    position: absolute;
+    top: (128 - 44) / 2 * @rem;
+    left: 40 * @rem;
+
+    display: block;
+    height: 44 * @rem;
+    width: 44 * @rem;
+    background-position: -58 * @rem -6 * @rem;
+}
+
+.background-image(@path, @rem: @rem) {
+
+    @background-width: unit(image-width(@path)) * @rem;
+    @background-height: unit(image-height(@path)) * @rem;
+
+    background-image: data-uri(@path);
+    background-repeat: no-repeat;
+    background-size: @background-width @background-height;
+}
+
+.icon-auto-tender {
+    .background-image("icon.png");
+
+    width:46*@rem;
+    height: 46*@rem;
+
+    position: absolute;
+    top: 128 / 2 * @rem - 46*@rem / 2;
+    left: 40 * @rem;
+}
+
+.icon-earning {
+    position: absolute;
+    top: (128 - 44) / 2 * @rem;
+    left: 40 * @rem;
+
+    display: block;
+    height: 44 * @rem;
+    width: 44 * @rem;
+    background-position: -107 * @rem -58 * @rem;
+}
+
+.icon-money {
+    .background-image("money.png");
+
+    width: 46*@rem;
+    height: 46*@rem;
+
+    position: absolute;
+    top: 128 / 2 * @rem - 46*@rem / 2;
+    left: 40 * @rem;
+}
+
+.icon-coupon {
+    position: absolute;
+    top: (128 - 32) / 2 * @rem;
+    left: 40 * @rem;
+
+    display: block;
+    height: 32 * @rem;
+    width: 47 * @rem;
+    background-position: -146 * @rem -6 * @rem;
+}
+
+.icon-right-arrow {
+    position: absolute;
+    right: 28 * @rem;
+    top: 50%;
+
+    display: block;
+    height: 24 * @rem;
+    width: 13 * @rem;
+
+    background-position: -163 * @rem -74 * @rem;
+
+    transform: translateY(-50%);
+}
+
+p {
+    margin: 0;
+}
+
+.f-fl {
+    float: left;
+}
+
+.g-mask{position:fixed;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5)}
+.g-mask .m-con-mask{width: 6.7rem;height: 3.66rem;border-radius: 4px;background-color: #fff;margin: 4.84rem auto 0;}
+.g-mask .m-con-mask .u-tit{height: .9rem;line-height: .9rem;text-align: center;font-size: .36rem;color: #333;border-bottom: 1px solid #e8e8e8;}
+.g-mask .m-con-mask .u-con{margin: .6rem .44rem .58rem .44rem;font-size: .3rem;color: #666;text-align: center;}
+.g-mask .m-con-mask .m-btn{height: .88rem;line-height: .88rem;font-size: .32rem;text-align: center;}
+.g-mask .m-con-mask .u-wait{width: 3.35rem;background-color: #e4e4e4;color: #333;border-bottom-left-radius: 4px;}
+.g-mask .m-con-mask .u-sure{width: 3.35rem;background-color: #ff5959;color: #fff;border-bottom-right-radius: 4px;}
+
+.tip_coupon{
+    display:none;
+    position:absolute;
+    left:280 * @rem;
+    bottom:88 * @rem;
+    color:#fff;
+    font-size:24 * @rem;
+    width:200 * @rem;
+    height:52 * @rem;
+    line-height:52 * @rem;
+    text-align:center;
+    background:#ff5a56;
+    border-radius:26 * @rem 26 * @rem 0 26 * @rem;
+}
+
+.point-nouse{
+    display:none;
+    position:absolute;
+    top:40 * @rem;
+    right:110 * @rem;
+    width:14 * @rem;
+    height:14 * @rem;
+    background:#ff5a56;
+    border-radius:50%;
+}

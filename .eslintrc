@@ -1,0 +1,57 @@
+{
+    "extends": [
+        "standard",
+        "plugin:react/recommended"
+    ],
+    "env": {
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "react/jsx-closing-bracket-location": [
+            "error",
+            "after-props"
+        ],
+        "react/jsx-closing-tag-location": "error",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/no-typos": "error",
+        "react/prop-types": "off",
+        "react/self-closing-comp": "error",
+        "react/sort-comp": "error",
+        "react/style-prop-object": "error",
+        "react/void-dom-elements-no-children": "error",
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "never",
+                "asyncArrow": "always",
+                "named": "never"
+            }
+        ]
+    },
+    "plugins": [
+        "react"
+    ],
+    "settings": {
+        "react": {
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "version": "16.2.0",
+            "flowVersion": "0.53"
+        },
+        "propWrapperFunctions": []
+    }
+}

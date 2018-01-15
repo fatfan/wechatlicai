@@ -14,8 +14,27 @@
 	url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.svg#iconfont') format('svg');
 }
 
+:global {
+    html {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+    }
 
-body,textarea,input,button,select,keygen,legend{ font: 28 * @rem/1.5 "-apple-system","Helvetica Neue",Helvetica,"Pingfang SC","Hiragino Sans GB","Heiti SC","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif;color:#333;background:#fff;-webkit-font-smoothing: antialiased}
+    body, #app, #router {
+        height: 100%;
+    }
+    @font-face {
+        font-family: 'iconfont';  /* project id 333529 */
+        src: url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.eot');
+        src: url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.woff') format('woff'),
+        url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.svg#iconfont') format('svg');
+    }
+}
+
+body,textarea,input,button,select,keygen,legend{ font: 28 * @rem/1.5 "-apple-system","Helvetica Neue",Helvetica,"Pingfang SC","Hiragino Sans GB","Heiti SC","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif;color:#333;-webkit-font-smoothing: antialiased}
 html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;outline:none;}
 header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
 table{border-collapse:collapse;border-spacing:0;overflow:hidden;word-break:break-all;}
@@ -35,7 +54,7 @@ del,ins,u,s,a,a:hover{text-decoration:none;}
 a{ text-decoration:none; outline:none; color: #333}/*去掉链接点击时出现的虚线框*/
 /*a:hover{ color: #ff4646; }*/
 input::-moz-focus-inner{border:none;}/*去掉按钮点击时出现的虚线框--------*/
-html{ margin:0; min-width: 750 * @rem; height: 100%; background-color: #f1f1f1;}/*解决height:100%无效的问题*/
+html{ margin:0; min-width: 750 * @rem; height: 100%; background-color: #f9f9f9;}/*解决height:100%无效的问题*/
 body{ width: 750 * @rem; margin: 0 auto; }
 
 input { font-size: 24 * @rem; vertical-align: middle; color: #333; outline: 0;border: 1px solid #dadada;}
@@ -48,11 +67,6 @@ input[type="text"],input[type="password"]{padding-left: 20 * @rem;}
 /* select{-webkit-appearance: none; -moz-appearance: none; -o-appearance: none;  -ms-appearance: none;appearance: none;padding-left: 10px;background:none;}
    select::-ms-expand { display: none; }*/
 
-.wrap{
-    width: 750 * @rem;
-    margin: 0 auto;
-    overflow: hidden
-}
 /*水平条菜单*/
 .m-listMenu{
 	padding: 10 * @rem;

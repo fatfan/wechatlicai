@@ -1,0 +1,18 @@
+{
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "emmet.preferences": {
+        "css.intUnit": " * @rem",
+        "css.unitAliases": "r: * @rem"
+    },
+    "files.associations": {
+        "*.cfg": "javascript"
+    },
+    "javascript.format.insertSpaceAfterConstructor": false,
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+    "less.compile": {
+        "out": false
+    }
+}

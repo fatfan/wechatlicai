@@ -1,0 +1,39 @@
+@rem: 0.01rem;
+
+.indicator {
+    color: #333;
+    font-size: 24 * @rem;
+    text-align: center;
+
+    &::before {
+        content: "";
+
+        display: inline-block;
+        width: 10 * @rem;
+        height: 20 * @rem;
+
+        background-color: #ccc;
+
+        transition: transform .3s ease-in-out;
+    }
+}
+
+.threhold::before {
+    transform: rotate(180deg);
+}
+
+.animating::before {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: rotate;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}

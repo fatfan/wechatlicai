@@ -1,0 +1,49 @@
+@rem: 0.01rem;
+
+.background(@path) {
+    @width: unit(image-width(@path)) * @rem;
+    @height: unit(image-height(@path)) * @rem;
+
+    background-image: data-uri(@path);
+    background-size: @width @height;
+}
+
+header {
+    box-sizing: border-box;
+
+    position: relative;
+
+    display: block;
+    height: 88 * @rem;
+    width: 750 * @rem;
+
+    background-color: #fff;
+
+    border-bottom: 2px solid #eaeaea;
+
+    line-height: 88 * @rem;
+
+    .title {
+        margin: 0;
+
+        color: #333;
+        font-size: 36 * @rem;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .back {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        display: block;
+        width: 88 * @rem;
+        height: 88 * @rem;
+
+        .background("./back.png");
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

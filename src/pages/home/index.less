@@ -1,0 +1,186 @@
+@rem: 0.01rem;
+
+.banner-container {
+    position: relative;
+    width: 750 * @rem;
+    height: 360 * @rem;
+
+    .container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 750 * @rem;
+        height: 360 * @rem;
+
+        text-align: center;
+        line-height: 360 * @rem;
+        overflow: hidden;
+
+        .wrapper{
+            position: absolute;
+            left: 0;
+            transition: left .5s;
+            li{
+                width: 750 * @rem;
+                height: 360 * @rem;
+                float: left;
+
+                a{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                }
+            }
+        }
+
+        .pagination{
+            position: absolute;
+            height: 20 * @rem;
+            bottom: 15 * @rem;
+            left: 50%;
+            transform: translate(-50%,0);
+
+            li{
+                float: left;
+                width: 20 * @rem;
+                height: 20 * @rem;
+
+                background: #fff;
+                border-radius: 50%;
+
+                & + li {
+                    margin-left: 10 * @rem;
+                }
+            }
+
+            .current{
+                background: #999;
+            }
+
+        }
+
+
+    }
+
+    .notification {
+        position: absolute;
+        top: 16 * @rem;
+        right: 30 * @rem;
+
+        display: block;
+        height: 60 * @rem;
+        width: 60 * @rem;
+
+        background-image: data-uri("notification.png");
+        background-size: 60 * @rem 60 * @rem;
+
+        z-index: 1;
+    }
+}
+
+.list-container {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.section-achievements {
+    box-sizing: border-box;
+
+    height: 156 * @rem;
+
+    background-image: data-uri("achievements.png");
+    background-size: 750 * @rem 156 * @rem;
+
+    padding: (36 - 7) * @rem 0;
+
+    color: #666;
+    font-size: 24 * @rem;
+    line-height: (34 + 14) * @rem;
+    text-align: center;
+
+    .user-count, .transaction-count {
+        margin-left: 10 * @rem;
+        color: #FF5F4C;
+    }
+}
+
+.section-advantage {
+    height: 186 * @rem;
+
+    margin-top: 20 * @rem;
+
+    background-image: data-uri("advantage.png");
+    background-size: 750 * @rem 186 * @rem;
+
+    padding: 0 54 * @rem;
+
+    font-size: 0;
+
+    .advantage-item {
+        box-sizing: border-box;
+        display: inline-block;
+
+        height: 100%;
+        width: 214 * @rem;
+
+        background-size: 88 * @rem 88 * @rem;
+        background-position-x: center;
+        background-position-y: 32 * @rem;
+        background-repeat: no-repeat;
+
+        padding-top: 124 * @rem;
+
+        color: #bfbfbf;
+        font-size: 24 * @rem;
+
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+.advantage-item-background(@index: 1) when (@index < 4) {
+    .advantage-item:nth-child(@{index}) {
+        background-image: data-uri("advantage-@{index}.png");
+    }
+
+    .advantage-item-background(@index + 1);
+}
+.advantage-item-background();
+
+.section-safe {
+    margin-top: 30 * @rem;
+
+    color: #afafaf;
+    font-size: 22 * @rem;
+    line-height: 32 * @rem;
+    text-align: center;
+}
+
+.icon-security {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 18 * @rem;
+    height: 32 * @rem;
+
+    margin-right: 4 * @rem;
+
+    background-image: data-uri("security.png");
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: 18 * @rem 22 * @rem;
+}
+
+.section-app {
+    padding: 30 * @rem 0;
+
+    text-align: center;
+
+    a {
+        margin: 0 12 * @rem;
+
+        color: #aaa;
+        font-size: 28 * @rem;
+        text-decoration: none;
+    }
+}

@@ -1,85 +1,77 @@
-import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import fetch from 'isomorphic-fetch'
 
-//引入样式
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import { Tabs, Tab } from 'material-ui/Tabs'
-import RaisedButton from 'material-ui/RaisedButton';
-// import "./more.less";
+import { Page, Header, Main } from 'src/component/page'
 
-//引入组件
-import Header from "../../../component/cmn/header/header.jsx";
+import './activity.less'
 
 export default class Activity extends Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props)
         this.state = {
-            open: false
-        };
+            dataList: []
+        }
     }
 
     componentDidMount() {
+        var that = this
+        fetch('/wechatlicai/src/datapi/more/activityHtmlService.cgi', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            credentials: 'include',
+            body: ''
+        })
+            .then(function(response) {
+                if (response.status >= 400) {
+                    throw new Error('Bad response from server')
+                }
+                return response.json()
+            })
+            .then(function(rslt) {
+                if (rslt.code === 0 && rslt.dataList) {
+                    that.setState({
+                        dataList: rslt.dataList
+                    })
+                }
+            })
     }
-
-    handleRequestClose() {
-        this.setState({
-            open: false,
-        });
-    }
-    handleTouchTap = () => {
-        this.setState({
-            open: true,
-        });
+    formatDate = (a, b) => {
+        function format(a, d) {
+            var b = {
+                'M+': a.getMonth() + 1,
+                'd+': a.getDate(),
+                'h+': a.getHours(),
+                'm+': a.getMinutes(),
+                's+': a.getSeconds(),
+                'q+': Math.floor((a.getMonth() + 3) / 3),
+                S: a.getMilliseconds()
+            };
+            /(y+)/.test(d) && (d = d.replace(RegExp.$1, (a.getFullYear() + '').substr(4 - RegExp.$1.length)))
+            for (var c in b) new RegExp('(' + c + ')').test(d) && (d = d.replace(RegExp.$1, RegExp.$1.length === 1 ? b[c] : ('00' + b[c]).substr(('' + b[c]).length)))
+            return d
+        }
+        return isNaN(a) || a === '' ? '' : a < 0 || a > 99999999999 ? '' : format(new Date(1e3 * parseInt(a)), b)
     }
     render() {
-        const standardActions = (
-            <FlatButton
-                label="Ok"
-                primary={true}
-                onClick={this.handleRequestClose}
-            />
-        );
         return (
-            <div>
-                <Header title="活动专区" goback="goback" address="/more"/>
-                <main style={{ marginTop: "0.88rem" }}>
-                    <Link className="menu-item" to="/more">返回</Link>
-                    <MuiThemeProvider>
-                        <div>
-                            <Dialog
-                                open={this.state.open}
-                                title="Super Secret Password"
-                                actions={standardActions}
-                                onRequestClose={this.handleRequestClose}
-                            >
-                                1-2-3-4-5
-                            </Dialog>
-                            <Tabs value="0">
-                                {
-                                    (function () {
-                                        let tabs = [
-                                            {
-                                                title: "tab1"
-                                            }, {
-                                                title: "tab2"
-                                            }, {
-                                                title: "tab3"
-                                            }
-                                        ];
-                                        tabs.map((tab, i) =>
-                                            <Tab key={i} label={tab.title} value={i}>
-                                            </Tab>
-                                        )
-                                    })()
-                                }
-                            </Tabs>
-                            <RaisedButton label="Default" onClick={this.handleTouchTap} />
-                        </div>
-                    </MuiThemeProvider>
-                </main>
-            </div>
+            <Page>
+                <Header title='活动专区' />
+                <Main style={{ marginTop: '0.25rem' }}>
+                    {this.state.dataList && this.state.dataList.map((item, i) => {
+                        return (
+                            <a href={item.url} key={i}>
+                                <div styleName='morc-act-ban'>
+                                    <p styleName='u-tit-ac'>{item.desc}</p>
+                                    <p styleName='u-time-ac'>活动时间:{this.formatDate(item.starttime, 'yyyy-MM-dd')}{item.endtime ? '至' + this.formatDate(item.endtime, 'yyyy-MM-dd') : '起'}</p>
+                                    <img src={item.imgUrl} styleName='u-img-act' />
+                                </div>
+                            </a>
+                        )
+                    })}
+                </Main>
+            </Page>
         )
     }
 }

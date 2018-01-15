@@ -1,0 +1,58 @@
+@rem: 0.01rem;
+
+.background(@path) {
+    @width: unit(image-width(@path)) * @rem;
+    @height: unit(image-height(@path)) * @rem;
+
+    background-image: data-uri(@path);
+    background-size: @width @height;
+}
+
+.indicator {
+    box-sizing: border-box;
+
+    position: relative;
+
+    height: 2 * 88 * @rem;
+
+    padding-top: 2 * 12 * @rem;
+
+    .background("ring.png");
+    background-position-x: center;
+    background-position-y: 2 * 48 * @rem;
+    background-repeat: no-repeat;
+
+    color: #afafaf;
+    font-size: 26 * @rem;
+    text-align: center;
+}
+
+.rotator {
+    position: absolute;
+    top: 110 * @rem;
+    right: 0;
+    left: 0;
+
+    display: block;
+    height: @height;
+
+    .background("rotator.png");
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+.animating {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: rotate;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
