@@ -44,7 +44,7 @@
   display: block;
   margin: 0.195rem 0;
 }
-.m-list .item .u-title a {
+.m-list .item .u-title p.detail {
   color: #fe4646;
 }
 .m-list .item .u-detail {
@@ -63,9 +63,6 @@
   overflow-y: scroll;
 }
 /*我的模块-公共样式*/
-body {
-  background: #f1f1f1!important;
-}
 .m-mine {
   min-height: 12.69rem;
   background: #f1f1f1;
@@ -562,12 +559,14 @@ animation-fadeIn {
   background: #fff;
   border-radius: 2px;
   -webkit-transform: rotate(-50deg);
+  transform: rotate(-50deg);
   top: 10px;
   right: 2px;
 }
 .u-done:before {
   width: 7px;
   -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
   right: 11px;
   top: 13px;
 }
@@ -623,6 +622,7 @@ animation-fadeIn {
   position: absolute;
   clip: rect(0, 64px, 64px, 32px);
   -webkit-transform: rotate(140deg);
+  transform: rotate(140deg);
 }
 @-webkit-keyframes circle {
   0% {

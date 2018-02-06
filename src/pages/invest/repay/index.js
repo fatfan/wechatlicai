@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
 
 import request from 'src/lib/request'
 
-import AppTabBar from 'src/component/app-tab-bar'
-import { Page, Header, Main, List } from 'src/component/page'
-import { TabBar, Tab } from 'src/component/tab-bar'
+import { Page, Header, List } from 'src/component/page'
+import { Tabs, Tab } from 'src/component/tabs'
 import BidItem from 'src/component/cmn/bidItem'
 
 import './index.less'
 
 export default class Repay extends Component {
-    load = async (page) => {
-        const type = this.props.match.params.type
-        const result = await request(`invest/${type === 'repaying' ? 'moreFlowRepayingList' : 'moreFlowRepayedList'}`, { pageIndex: page + 1 })
+    load = async (page, param) => {
+        const result = await request(`invest/${param === 'repaying' ? 'moreFlowRepayingList' : 'moreFlowRepayedList'}`, { pageIndex: page + 1 })
 
         if (result.code === 200) {
             return {
@@ -27,23 +24,25 @@ export default class Repay extends Component {
 
     render() {
         return (
-            <Page styleName='page'>
+            <Page>
                 <Header title='满额项目' />
 
-                <TabBar height={88} indicator>
-                    <Tab to="/invest/repaying" header="已售罄" />
-                    <Tab to="/invest/repayed" header="已还款" />
-                </TabBar>
-
-                <Main noScroll>
-                    <List id={this.props.match.url} styleName='swiper-slide' load={this.load}>
-                        {(item) => (
-                            <BidItem key={item.id} {...item} className='repay' listType={1} />
-                        )}
-                    </List>
-                </Main>
-
-                <AppTabBar />
+                <Tabs height={88} indicator>
+                    <Tab to="/invest/repaying" title="已售罄" >
+                        <List load={this.load} param="repaying">
+                            {(item) => (
+                                <BidItem key={item.id} {...item} className='repay' listType={1} />
+                            )}
+                        </List>
+                    </Tab>
+                    <Tab to="/invest/repayed" title="已还款">
+                        <List load={this.load} param="repayed">
+                            {(item) => (
+                                <BidItem key={item.id} {...item} className='repay' listType={1} />
+                            )}
+                        </List>
+                    </Tab>
+                </Tabs>
             </Page >
         )
     }

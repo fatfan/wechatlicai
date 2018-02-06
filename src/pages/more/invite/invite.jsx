@@ -37,7 +37,7 @@ export default class Invite extends Component {
         if (result.code === 0) {
             return {
                 list: result.phoneList,
-                ended: result.phoneList.length !== 10
+                ended: result.phoneList.length < 12
             }
         } else {
             throw new Error()

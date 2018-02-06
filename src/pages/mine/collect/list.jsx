@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 
 import request from 'src/lib/request'
 import { Page, Header, Main, List } from 'src/component/page'
-
+import { Route, Link } from 'react-router-dom'
+import Detail from './detail.jsx'
 import './list.less'
 
-export default class Collect extends Component {
+class Index extends Component {
     state = {}
 
     async componentDidMount() {
@@ -64,26 +65,34 @@ export default class Collect extends Component {
                 <Main styleName="m-list">
                     <List load={this.loadList}>
                         {(item, index) => (
-                            <div styleName="item" data-borrow-id={item.tenderId} key={index}>
-                                <div styleName="u-title ofh">
-                                    <div styleName="f-fl">
-                                        <p>{item.borrowName}<i>({item.orders})</i></p>
-                                        <span styleName="u-time">{item.addtime}</span>
+                            <Link to={`/mine/collect/${item.borrowId}`}>
+                                <div styleName="item" data-borrow-id={item.tenderId} key={index}>
+                                    <div styleName="u-title ofh">
+                                        <div styleName="f-fl">
+                                            <p>{item.borrowName}<i>({item.orders})</i></p>
+                                            <span styleName="u-time">{item.addtime}</span>
+                                        </div>
+                                        <p styleName="detail f-fr">详情&gt;&gt;</p>
                                     </div>
-                                    <a href="javascript:;" styleName="f-fr">详情&gt;&gt;</a>
-                                </div>
-                                <div styleName="u-detail ofh">
-                                    <p styleName="f-fl">回款：<i>{item.coupon ? item.coupon : 0.00}</i>元</p>
-                                    <div styleName="f-fr">
-                                        <span styleName="db">{this.formatDate(item.repayTime, 'yyyy-MM-dd hh:mm:ss')}</span>
-                                        <span styleName="db">剩余:<i>{item.days}</i>天</span>
+                                    <div styleName="u-detail ofh">
+                                        <p styleName="f-fl">回款：<i>{item.coupon ? item.coupon : 0.00}</i>元</p>
+                                        <div styleName="f-fr">
+                                            <span styleName="db">{this.formatDate(item.repayTime, 'yyyy-MM-dd hh:mm:ss')}</span>
+                                            <span styleName="db">剩余:<i>{item.days}</i>天</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         )}
                     </List>
                 </Main>
             </Page>
         )
     }
+}
+export default function Collect({ match }) {
+    return [
+        <Route key="0" exact path={match.url} component={Index} />,
+        <Route key="1" path={`${match.url}/:id(\\d+)`} component={Detail} />
+    ]
 }

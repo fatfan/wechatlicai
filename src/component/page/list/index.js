@@ -2,6 +2,12 @@ import React, { PureComponent } from 'react'
 
 import PullToRefresh from 'src/component/pull-to-refresh'
 
+function EndMessage() {
+    return (
+        <p>没有更多了</p>
+    )
+}
+
 export default class List extends PureComponent {
     constructor(props) {
         super(props)
@@ -29,7 +35,7 @@ export default class List extends PureComponent {
     }
 
     load = async (clear) => {
-        const { load } = this.props
+        const { load, param } = this.props
         if (typeof load !== 'function') {
             return
         }
@@ -39,7 +45,7 @@ export default class List extends PureComponent {
         }
 
         try {
-            const { list, ended } = await load(this.page)
+            const { list, ended } = await load(this.page, param)
             this.page++
 
             if (!this.unmount) {
@@ -54,11 +60,16 @@ export default class List extends PureComponent {
     }
 
     render() {
-        const { className, footer, children } = this.props
+        const {
+            className,
+            footer = <EndMessage />,
+            style,
+            children
+        } = this.props
         const { list, ended } = this.state
 
         return (
-            <PullToRefresh className={className} reload={this.reload} load={!ended && this.load}>
+            <PullToRefresh className={className} reload={this.reload} load={!ended && this.load} style={style}>
                 {list.map((item, index) => typeof children === 'function' ? children(item, index) : React.cloneElement(React.Children.only(children), { item, index }))}
                 {ended && footer}
             </PullToRefresh>

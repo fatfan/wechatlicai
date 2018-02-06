@@ -1,0 +1,58 @@
+@rem: 0.01rem;
+
+.tab-bar {
+    position: relative;
+
+    background-color: #fff;
+}
+
+.tab {
+    flex-basis: 0;
+    flex-grow: 1;
+
+    display: block;
+    width: 0;
+}
+
+.default-tab {
+    height: 88 * @rem;
+    opacity: 1;
+
+    color: #999;
+    font-size: 30 * @rem;
+    line-height: 88 * @rem;
+    text-align: center;
+}
+
+.default-active {
+    color: #333;
+}
+
+.indicator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    text-align: center;
+
+    span {
+        box-sizing: border-box;
+
+        display: inline-block;
+        height: 100%;
+
+        color: transparent;
+        font-size: 30 * @rem;
+        border-bottom: 6 * @rem solid #fe4646;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    overflow: hidden;
+}

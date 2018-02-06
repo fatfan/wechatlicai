@@ -1,0 +1,20 @@
+@rem: 0.01rem;
+
+.button {
+    margin: 0 auto;
+
+    background-color: #ff5a56;
+
+    color: #ffffff;
+    font-size: 32 * @rem;
+    text-align: center;
+    line-height: 88 * @rem;
+
+    &[round=true] {
+        border-radius: 8 * @rem;
+    }
+
+    &[disabled] {
+        background-color: #cecece;
+    }
+}

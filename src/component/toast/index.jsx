@@ -2,21 +2,15 @@ import React, { Component } from 'react'
 
 import './index.less'
 
-// export default function Toast({ children }) {
-//     return (
-//         <div styleName="u-tip">
-//             {children}
-//         </div>
-//     )
-// }
+let instance
 
-export default class Index extends Component {
+class Toast extends Component {
     constructor(prop) {
         super(prop)
-        this.state = {
-            duation: 3000,
-            show: 0
-        }
+
+        this.state = {}
+        instance = this
+
         console.log('constructor')
     }
 
@@ -25,11 +19,11 @@ export default class Index extends Component {
     }
 
     componentDidMount() {
-        this.timmer = setTimeout(() => {
-            this.setState({
-                show: 1
-            })
-        }, this.state.duation)
+        // this.timmer = setTimeout(() => {
+        //     this.setState({
+        //         show: 0
+        //     })
+        // }, this.state.duation)
         console.log('componentDidMount')
     }
     shouldComponentUpdate() {
@@ -49,21 +43,49 @@ export default class Index extends Component {
     }
 
     componentWillUnmount() {
-        clearTimeout(this.timer)
-        this.setState({
-            show: 0
-        })
         console.log('componentWillUnmount')
     }
 
     render() {
-        if (this.state.show === 1) {
+        if (!this.state.show) {
             return null
         }
+
         return (
             <div styleName="u-tip">
-                {this.props.children}
+                {this.state.content}
             </div>
         )
     }
+}
+
+let timer
+function delay(timeout) {
+    return new Promise(resolve => {
+        timer = setTimeout(resolve, timeout)
+    })
+}
+
+function hide() {
+    instance.setState({
+        show: false
+    })
+}
+
+async function show(content = '', duration = 2000) {
+    instance.setState({
+        show: true,
+        content: content
+    })
+
+    clearTimeout(timer)
+    await delay(duration)
+
+    hide()
+}
+
+export default {
+    element: <Toast />,
+    show,
+    hide
 }

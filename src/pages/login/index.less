@@ -1,11 +1,10 @@
 @rem: 0.01rem;
 .page{
-    html,
-    body { background-color: #fff; }
-    .g-cnt {
+    html,body{background-color: #fff;}
+    .g-cnt{
         padding: 0;
     }
-    .u-input {
+    .u-input{
         padding-left: 30 * @rem;
         position: relative;
         width: 96%;
@@ -13,81 +12,66 @@
         border-top: 1px solid #e8e8e8;
         background: #fff;
         overflow: hidden;
-        border-bottom: none;
+        border-bottom:none;
     }
-    .u-input.password {
+    .u-input.password{
         border-bottom: 1px solid #e8e8e8;
     }
-    .password {
+    .password{
         position: relative;
     }
-    .u-input label {
+
+    .input {
+        background-color: #ffffff;
+    }
+
+    .label {
         display: inline-block;
-        font-size: 32 * @rem;
+
+        margin-left: 30 * @rem;
+        width: (210 - 30) * @rem;
+
         color: #333;
-        width: 210 * @rem;
-    }
-    .u-input input {
-        width: 60%;
-        height: 100%;
-        border: 0;
         font-size: 32 * @rem;
-        outline: none;
     }
-    .u-submit {
-        display: block;
-        width: 90%;
-        height: 88 * @rem;;
-        line-height: 88 * @rem;
+
+    .u-submit{
         margin:60 * @rem auto 30 * @rem;
-        background-color: #ff5a56;
-        text-align: center;
-        color: #fff;
-        border-radius: 8 * @rem;;
     }
-    .u-submit.disable {
-        background-color: #cecece;
-        pointer-events: none;
-    }
-    .m-logo {
+
+    .m-logo{
         width: 272 * @rem;
         height: 74 * @rem;
         margin: 170 * @rem auto 20 * @rem;
         background-image: url("https://icdn.cnaidai.com/aidai/webchat/static/img/logo.png");
         background-size: 100% 100%;
     }
-    .m-message {
+    .m-message{
         margin: 40 * @rem 0;
         text-align: center;
         font-size: 24 * @rem;
     }
-
-    @font-face {
-        font-family: 'iconfont';  /* project id 333529 */
-        src: url('https://at.alicdn.com/t/font_ex831y6ow4x3whfr.eot');
-        src:
-            url('https://at.alicdn.com/t/font_ex831y6ow4x3whfr.eot?#iefix') format('embedded-opentype'),
-            url('https://at.alicdn.com/t/font_ex831y6ow4x3whfr.woff') format('woff'),
-            url('https://at.alicdn.com/t/font_ex831y6ow4x3whfr.ttf') format('truetype'),
-            url('https://at.alicdn.com/t/font_ex831y6ow4x3whfr.svg#iconfont') format('svg');
-    }
-    .icon-logo {
+    .icon-logo{
         font-family: 'iconfont' !important;
         color: #FF5A56;
-        font-size: 332 * @rem;
+        font-size:  332 * @rem;
+        line-height: normal;
         text-align: center;
         // margin-top: -40 * @rem;
     }
-    .icon-eye {
-        display: inline-block;
-        position: absolute;
-        top: 30 * @rem;
-        right: 30 * @rem;
-        font-family: 'iconfont' !important;
+    .icon-eye{
+        display: block;
+
+        width: 98 * @rem;
+        height: 98 * @rem;
+
         color: #d1d1d1;
+        font-family: 'iconfont' !important;
         font-size: 42 * @rem;
+        line-height: 98 * @rem;
+        text-align: center;
     }
-    .m-login {
+    .m-login{
         margin-top: -80 * @rem;
     }
 }

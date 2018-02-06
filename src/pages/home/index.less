@@ -105,6 +105,8 @@
 }
 
 .section-advantage {
+    box-sizing: border-box;
+
     height: 186 * @rem;
 
     margin-top: 20 * @rem;
@@ -118,10 +120,11 @@
 
     .advantage-item {
         box-sizing: border-box;
-        display: inline-block;
 
         height: 100%;
-        width: 214 * @rem;
+
+        flex-grow: 1;
+        flex-basis: 0;
 
         background-size: 88 * @rem 88 * @rem;
         background-position-x: center;
@@ -184,3 +187,46 @@
         text-decoration: none;
     }
 }
+
+.background(@path) {
+    @width: unit(image-width(@path)) * @rem;
+    @height: unit(image-height(@path)) * @rem;
+
+    background-image: data-uri(@path);
+    background-size: @width @height;
+}
+
+.tab-bar {
+    height: 100 * @rem;
+
+    box-shadow: 0 -2px 6px 0 rgba(51,51,51,0.05);
+}
+
+.tab {
+    background-position: center 8 * @rem;
+    background-repeat: no-repeat;
+
+    padding-top: 68 * @rem;
+
+    color: #AFAFAF;
+    font-size: 20 * @rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.active {
+    color: #FF5A56;
+}
+
+.tab-background(@index: 1) when (@index < 5) {
+    .tab:nth-child(@{index}) {
+        .background("tab-@{index}.png");
+    }
+
+    .active:nth-child(@{index}) {
+        .background("tab-@{index}-on.png");
+    }
+
+    .tab-background(@index + 1);
+}
+.tab-background();

@@ -1,16 +1,17 @@
 @rem: 0.01rem;
 
 .input {
-    width: 100%;
-
-    height: 88 * @rem;
+    flex-grow: 1;
 
     border: none;
     outline: none;
 
     color: #333;
-    font-size: 40 * @rem;
-    line-height: 88 * @rem;
+    line-height: inherit;
+
+    &:-webkit-autofill {
+        box-shadow: 0 0 0 1000px white inset;
+    }
 
     &::-webkit-input-placeholder {
         color: #bebebe;

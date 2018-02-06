@@ -1,0 +1,115 @@
+@rem: 0.01rem;
+
+.background(@path) {
+    @width: unit(image-width(@path)) * @rem;
+    @height: unit(image-height(@path)) * @rem;
+
+    background-image: data-uri(@path);
+    background-size: @width @height;
+}
+
+.block {
+    background-color: #ffffff;
+
+    overflow-y: hidden;
+
+    h2 {
+        margin: 0;
+        margin-top: 22 * @rem;
+        margin-left: 30 * @rem;
+
+        color: #666666;
+        font-size: 32 * @rem;
+        font-weight: normal;
+        line-height: 44 * @rem;
+    }
+}
+
+.line {
+    margin-left: 30 * @rem;
+
+    padding-right: 30 * @rem;
+
+    color: #9B9B9B;
+    font-size: 24 * @rem;
+    line-height: 74 * @rem;
+
+    & + & {
+        border-top: 1px solid rgba(175,175,175,0.29);
+    }
+}
+
+.yuan {
+    color: #333333;
+    font-size: 56 * @rem;
+    line-height: 88 * @rem;
+}
+
+.invest-all {
+    padding-left: 30 * @rem;
+
+    color: #4A90E2;
+    font-size: 28 * @rem;
+    line-height: 88 * @rem;
+}
+
+.red {
+    color: #ff5a56;
+}
+
+.coupon {
+    margin-top: 20 * @rem;
+
+    height: 100 * @rem;
+
+    padding-left: 30 * @rem;
+
+    color: #333333;
+    font-size: 30 * @rem;
+    line-height: 100 * @rem;
+}
+
+.popup {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 900 * @rem;
+
+    background-color: #ffffff;
+
+    .popup-close {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 88 * @rem;
+        height: 88 * @rem;
+
+        .background("close.png");
+        background-position: center;
+        background-repeat: no-repeat;
+
+        z-index: 1;
+    }
+
+    .popup-content {
+        box-sizing: border-box;
+
+        height: 100%;
+
+        overflow: auto;
+    }
+}
+
+.subtotal {
+    margin: 30 * @rem 0;
+
+    height: 90 * @rem;
+
+    color: #333333;
+    font-size: 68 * @rem;
+    line-height: 90 * @rem;
+    text-align: center;
+}

@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import request from 'src/lib/request'
 
-import AppTabBar from 'src/component/app-tab-bar'
-import { Page, Main } from 'src/component/page'
+import { Page } from 'src/component/page'
+import { Tabs, Tab } from 'src/component/tabs'
+import Flex from 'src/component/flex'
 import PullToRefresh from 'src/component/pull-to-refresh'
 
 import { Invest } from 'src/pages/invest'
@@ -13,7 +14,7 @@ import { More } from 'src/pages/more'
 
 import BidItem from 'src/component/cmn/bidItem'
 
-import './index.less'
+import styles from './index.less'
 
 class Home extends PureComponent {
     constructor(prop) {
@@ -126,82 +127,89 @@ class Home extends PureComponent {
 
     render() {
         return (
-            <Main noScroll>
-                <PullToRefresh reload={this.load}>
-                    <section styleName='banner-container'>
-                        <div styleName='container' ref={el => { this.container = el }}>
-                            <ul styleName='wrapper' ref={el => { this.wrapper = el }} style={{
-                                width: this.state.scrollPicList.length * 7.5 + 'rem',
-                                height: '3rem',
-                                left: this.state.index * 7.5 + 'rem'
-                            }}>
-                                {this.state.scrollPicList.map((value, index) => {
-                                    return (
-                                        <li key={index}>
-                                            <a href={value.url} style={{ 'backgroundImage': 'url(https://adtp.cnaidai.com/' + value.pic + ')' }} />
-                                        </li>)
-                                })}
-                            </ul>
-                            <ul styleName='pagination'>
-                                {this.state.scrollPicList.map((value, index) => {
-                                    return <li styleName={Math.abs(this.state.index) === index ? 'current' : ''} key={index} onClick={this.handleDotClick.bind(this, index)} onTouchStart={this.handleDotClick.bind(this, index)} />
-                                })}
-                            </ul>
-                        </div>
-                        <Link styleName='notification' to="/more/notice" />
-                    </section>
-                    <section styleName='list-container'>
-                        {this.state.indexBorrowList.map(function(item, i) {
-                            if (i === 0) {
+            <PullToRefresh reload={this.load}>
+                <section styleName='banner-container'>
+                    <div styleName='container' ref={el => { this.container = el }}>
+                        <ul styleName='wrapper' ref={el => { this.wrapper = el }} style={{
+                            width: this.state.scrollPicList.length * 7.5 + 'rem',
+                            height: '3rem',
+                            left: this.state.index * 7.5 + 'rem'
+                        }}>
+                            {this.state.scrollPicList.map((value, index) => {
                                 return (
-                                    <BidItem key={item.id} {...item} className='list-item-big' bidType={1} />
-                                )
-                            }
+                                    <li key={index}>
+                                        <a href={value.url} style={{ 'backgroundImage': 'url(https://adtp.cnaidai.com/' + value.pic + ')' }} />
+                                    </li>)
+                            })}
+                        </ul>
+                        <ul styleName='pagination'>
+                            {this.state.scrollPicList.map((value, index) => {
+                                return <li styleName={Math.abs(this.state.index) === index ? 'current' : ''} key={index} onClick={this.handleDotClick.bind(this, index)} onTouchStart={this.handleDotClick.bind(this, index)} />
+                            })}
+                        </ul>
+                    </div>
+                    <Link styleName='notification' to="/more/notice" />
+                </section>
+                <section styleName='list-container'>
+                    {this.state.indexBorrowList.map(function(item, i) {
+                        if (i === 0) {
                             return (
-                                <BidItem key={item.id} {...item} />
+                                <BidItem key={item.id} {...item} className='list-item-big' bidType={1} />
                             )
-                        })}
-                    </section>
-                    <section styleName='section-achievements' >
-                        <div>
-                            <span>用户总数</span>
-                            <span styleName='user-count'>{this.state.realTimeFinancial.userCount && this.formatNumber(this.state.realTimeFinancial.userCount)}位</span>
-                        </div>
-                        <div>
-                            <span>累计成交</span>
-                            <span styleName='transaction-count'>{this.state.realTimeFinancial.borrowTotal && this.formatNumber(this.state.realTimeFinancial.borrowTotal)}元</span>
-                        </div>
-                    </section>
-                    <section styleName='section-advantage'>
-                        <a styleName='advantage-item' href='http://wechat.cnaidai.com/webchat/activity/safeLevel/index.html'>三级等保测评</a>
-                        <a styleName='advantage-item' href='http://wechat.cnaidai.com/webchat/activity/6year_activity/index.html'>6年老品牌</a>
-                        <a styleName='advantage-item' href='http://wechat.cnaidai.com/webchat/activity/icpShow/index.html'>ICP合规经营</a>
-                    </section>
+                        }
+                        return (
+                            <BidItem key={item.id} {...item} />
+                        )
+                    })}
+                </section>
+                <section styleName='section-achievements' >
+                    <div>
+                        <span>用户总数</span>
+                        <span styleName='user-count'>{this.state.realTimeFinancial.userCount && this.formatNumber(this.state.realTimeFinancial.userCount)}位</span>
+                    </div>
+                    <div>
+                        <span>累计成交</span>
+                        <span styleName='transaction-count'>{this.state.realTimeFinancial.borrowTotal && this.formatNumber(this.state.realTimeFinancial.borrowTotal)}元</span>
+                    </div>
+                </section>
+                <Flex styleName='section-advantage'>
+                    <a styleName='advantage-item' href='http://wechat.cnaidai.com/webchat/activity/safeLevel/index.html'>三级等保测评</a>
+                    <a styleName='advantage-item' href='http://wechat.cnaidai.com/webchat/activity/6year_activity/index.html'>6年老品牌</a>
+                    <a styleName='advantage-item' href='http://wechat.cnaidai.com/webchat/activity/icpShow/index.html'>ICP合规经营</a>
+                </Flex>
 
-                    <section styleName='section-safe'>
-                        <i styleName='icon-security' />
-                        <span>您的资金由财险机构和第三方共同保障</span>
-                    </section>
+                <section styleName='section-safe'>
+                    <i styleName='icon-security' />
+                    <span>您的资金由财险机构和第三方共同保障</span>
+                </section>
 
-                    <section styleName='section-app'>
-                        <a href="https://pc.cnaidai.com/webpc/qrcode/download.htm">客户端</a>
-                        <a href="http://www.cnaidai.com?viewType=desktop">电脑版</a>
-                    </section>
-                </PullToRefresh>
-            </Main>
+                <section styleName='section-app'>
+                    <a href="https://pc.cnaidai.com/webpc/qrcode/download.htm">客户端</a>
+                    <a href="http://www.cnaidai.com?viewType=desktop">电脑版</a>
+                </section>
+            </PullToRefresh>
         )
     };
 }
 
-export default function HomeRouter({ match }) {
+export default function HomeRouter() {
+    const activeClassName = styles.active
     return (
         <Page>
-            <Route exact path="/" component={Home} />
-            <Route path="/invest" component={Invest} />
-            <Route path="/mine" component={Mine} />
-            <Route path="/more" component={More} />
-
-            <AppTabBar />
+            <Tabs styleName="tab-bar" bottom>
+                <Tab to="/" styleName="tab" activeClassName={activeClassName} exact title="首页" >
+                    <Home />
+                </Tab>
+                <Tab to="/invest" styleName="tab" activeClassName={activeClassName} title="投资" >
+                    <Invest />
+                </Tab>
+                <Tab to="/mine" styleName="tab" activeClassName={activeClassName} title="我的" >
+                    <Mine />
+                </Tab>
+                <Tab to="/more" styleName="tab" activeClassName={activeClassName} title="更多" >
+                    <More />
+                </Tab>
+            </Tabs>
         </Page>
     )
 }

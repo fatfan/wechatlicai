@@ -11,7 +11,7 @@ export default class Balance extends Component {
     async componentDidMount() {
     }
     load = async (type, page) => {
-        const result = await request(`mine/balance/balance${type}DataService`, { page, rows: 10 })
+        const result = await request(`mine/balance/balance${type}DataService`, { page, rows: 10 }, { credentials: 'include' })
         if (result.code === 0) {
             return {
                 list: result.log,

@@ -1,0 +1,33 @@
+// compress: true, sourceMap: true, ieCompat: false, autoprefixer: Chrome 37; iOS 7
+
+@rem:75/100rem;
+.background(@path) {
+    background-image: data-uri(@path);
+}
+
+.m-detail{font-size: 0.4*@rem;color: #333;}
+.m-detail .m-item{height: 1.28*@rem;line-height: 1.28*@rem;padding:0 0.4rem 0 0.27rem;border-bottom: 1px solid #ebebeb;background-color: #fff;overflow: hidden;}
+.m-detail a{display: block;color: #333;overflow: hidden;}
+.m-detail .m-item span{font-size: 0.32*@rem;color: #999;}
+.m-detail .m-item.u-username{height: 2.24*@rem;line-height: 2.24*@rem;}
+.m-detail .m-item .u-userImg{margin: 0.34*@rem 0.2*@rem 0 0;}
+.m-detail .m-item .u-userImg img{width:1.2rem;}
+.m-explain{margin-top: 0.8*@rem;line-height: 0.6*@rem;letter-spacing:0.03*@rem;text-align: center;font-size:0.32*@rem;color: #999;}
+.m-explain span{color: #333;}
+.f-fl{float: left}
+.f-fr{float: right}
+.m-item{position: relative}
+.m-item::after {
+    content: '';
+    display: block;
+    width: 0.13rem;
+    height: 0.24rem;
+    position: absolute;
+    top:0.35rem;
+    right:0.2rem;
+    .background("rightArrowIcon.png");
+    background-size: 0.13rem 0.24rem;
+}
+.u-username.m-item::after {
+    top:0.75rem;
+}

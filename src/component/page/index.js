@@ -1,12 +1,14 @@
 import React from 'react'
 
+import Flex from 'src/component/flex'
+
 import './index.less'
 
 export function Page({ children, className, ...props }) {
     return (
-        <div className={className} styleName="page" {...props}>
+        <Flex column className={className} styleName="page" {...props}>
             {children}
-        </div>
+        </Flex>
     )
 }
 

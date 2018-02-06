@@ -1,17 +1,19 @@
 /*! app.less */
+
 /**
  * 1. normalize some elements default behivor.
  * 2. provide common ui components.
  */
 
 @rem: 0.01rem;
+
 @font-face {
-	font-family: 'iconfont';  /* project id 333529 */
-	src: url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.eot');
-	src: url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.eot?#iefix') format('embedded-opentype'),
-	url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.woff') format('woff'),
-	url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.ttf') format('truetype'),
-	url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.svg#iconfont') format('svg');
+    font-family: 'iconfont';  /* project id 333529 */
+    src: url('https://at.alicdn.com/t/font_333529_5tz81kffzf3i8uxr.eot');
+    src: url('https://at.alicdn.com/t/font_333529_5tz81kffzf3i8uxr.eot?#iefix') format('embedded-opentype'),
+    url('https://at.alicdn.com/t/font_333529_5tz81kffzf3i8uxr.woff') format('woff'),
+    url('https://at.alicdn.com/t/font_333529_5tz81kffzf3i8uxr.ttf') format('truetype'),
+    url('https://at.alicdn.com/t/font_333529_5tz81kffzf3i8uxr.svg#iconfont') format('svg');
 }
 
 :global {
@@ -23,59 +25,41 @@
 
     body, #app, #router {
         height: 100%;
+        overscroll-behavior: none;
     }
-    @font-face {
-        font-family: 'iconfont';  /* project id 333529 */
-        src: url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.eot');
-        src: url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.eot?#iefix') format('embedded-opentype'),
-        url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.woff') format('woff'),
-        url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.ttf') format('truetype'),
-        url('//at.alicdn.com/t/font_ttf4ozpx59ltyb9.svg#iconfont') format('svg');
+    body,textarea,input,button,select,keygen,legend{ font-size: 28 * @rem; line-height: 1.5em; font-family: "-apple-system","Helvetica Neue",Helvetica,"Pingfang SC","Hiragino Sans GB","Heiti SC","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif;color:#333;-webkit-font-smoothing: antialiased}
+    html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;outline:none;}
+    header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+    table{border-collapse:collapse;border-spacing:0;overflow:hidden;word-break:break-all;}
+    caption,th{text-align:left;font-weight:normal;}
+    html,body,fieldset,img,iframe,abbr{border:0;}
+    i,cite,em,var,address,dfn{font-style:normal;}
+    [hidefocus],summary{outline:0;}
+    ul,li{list-style:none;}
+    h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+    sup,sub{font-size:83%;}
+    pre,code,kbd,samp{font-family:inherit;}
+    q:before,q:after{content:none;}
+    textarea{overflow:auto;resize:none;}
+    label,summary{cursor:default;}
+    a,button{cursor:pointer;}
+    del,ins,u,s,a,a:hover{text-decoration:none;}
+    a{ text-decoration:none; outline:none; color: #333}/*去掉链接点击时出现的虚线框*/
+    /*a:hover{ color: #ff4646; }*/
+    input::-moz-focus-inner{border:none;}/*去掉按钮点击时出现的虚线框--------*/
+    html{ margin:0; min-width: 750 * @rem; height: 100%; background-color: #f9f9f9;}/*解决height:100%无效的问题*/
+    body{ width: 750 * @rem; margin: 0 auto; }
+
+    /*水平条菜单*/
+    .m-listMenu{
+        padding: 10 * @rem;
+        background-color: red;
+
+        i{
+            background: rebeccapurple;
+        }
+        .title{
+            color: chocolate;
+        }
     }
-}
-
-body,textarea,input,button,select,keygen,legend{ font: 28 * @rem/1.5 "-apple-system","Helvetica Neue",Helvetica,"Pingfang SC","Hiragino Sans GB","Heiti SC","Microsoft Yahei","WenQuanYi Micro Hei",sans-serif;color:#333;-webkit-font-smoothing: antialiased}
-html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;outline:none;}
-header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
-table{border-collapse:collapse;border-spacing:0;overflow:hidden;word-break:break-all;}
-caption,th{text-align:left;font-weight:normal;}
-html,body,fieldset,img,iframe,abbr{border:0;}
-i,cite,em,var,address,dfn{font-style:normal;}
-[hidefocus],summary{outline:0;}
-ul,li{list-style:none;}
-h1,h2,h3,h4,h5,h6,small{font-size:100%;}
-sup,sub{font-size:83%;}
-pre,code,kbd,samp{font-family:inherit;}
-q:before,q:after{content:none;}
-textarea{overflow:auto;resize:none;}
-label,summary{cursor:default;}
-a,button{cursor:pointer;}
-del,ins,u,s,a,a:hover{text-decoration:none;}
-a{ text-decoration:none; outline:none; color: #333}/*去掉链接点击时出现的虚线框*/
-/*a:hover{ color: #ff4646; }*/
-input::-moz-focus-inner{border:none;}/*去掉按钮点击时出现的虚线框--------*/
-html{ margin:0; min-width: 750 * @rem; height: 100%; background-color: #f9f9f9;}/*解决height:100%无效的问题*/
-body{ width: 750 * @rem; margin: 0 auto; }
-
-input { font-size: 24 * @rem; vertical-align: middle; color: #333; outline: 0;border: 1px solid #dadada;}
-input[type="text"],input[type="password"]{padding-left: 20 * @rem;}
-/* input:focus{border: 1px solid #eb3f3f;} */
-::-webkit-input-placeholder {color:#b3b3b3;}
-:-moz-placeholder {color:#b3b3b3;}
-::-moz-placeholder {color:#b3b3b3;}
-:-ms-input-placeholder {color:#b3b3b3; }
-/* select{-webkit-appearance: none; -moz-appearance: none; -o-appearance: none;  -ms-appearance: none;appearance: none;padding-left: 10px;background:none;}
-   select::-ms-expand { display: none; }*/
-
-/*水平条菜单*/
-.m-listMenu{
-	padding: 10 * @rem;
-	background-color: red;
-
-	i{
-		background: rebeccapurple;
-	}
-	.title{
-		color: chocolate;
-	}
 }

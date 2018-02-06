@@ -7,6 +7,7 @@ import fetch from 'isomorphic-fetch'
 import './index.less'
 
 import { Page, Header, Main } from 'src/component/page'
+import Toast from 'src/component/toast'
 
 export default class Index extends Component {
     constructor(prop) {
@@ -25,6 +26,7 @@ export default class Index extends Component {
         console.log(
             'dologin called...'
         )
+
         var data = 'username=' + this.state.username + '&password=' + this.state.password
 
         fetch('/wechatlicai/src/datapi/login.cgi', {
@@ -78,7 +80,7 @@ export default class Index extends Component {
                 <Main>
                     <div>
                         <div styleName="m-firstStep" className="J_step1">
-                            <div styleName="m-logo">&#xe610;</div>
+                            <div styleName="m-logo icon-logo">&#xe610;</div>
                             <p styleName="m-message">新用户注册领取188元红包</p>
                             <div styleName="m-username">
                                 <label htmlFor="username">手机号码</label>
@@ -120,6 +122,7 @@ export default class Index extends Component {
                         </div>
                     </div>
                 </Main>
+                { Toast.init('aaa') }
             </Page>
         )
     }

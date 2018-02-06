@@ -124,10 +124,10 @@
 }
 
 .repay {
-
     .tag{
         display: none;
     }
+
     .progress-ring{
         display: none !important;
     }
@@ -142,25 +142,37 @@
     .tag {
         flex-shrink: 0;
 
-        box-sizing: border-box;
-
         margin-left: 10 * @rem;
 
-        height: 32 * @rem;
-        width: 32 * @rem;
-
-        border: 1px solid #4c8cf8;
-        border-radius: 4 * @rem;
-
-        color: #4c8cf8;
-        font-size: 24 * @rem;
-        line-height: 30 * @rem;
-        text-align: center;
+        width: 80 * @rem;
+        height: 36 * @rem;
 
         &.tag-award {
+            box-sizing: border-box;
+
             width: auto;
+            height: 32 * @rem;
 
             padding: 0 4 * @rem;
+
+            border: 1px solid #4c8cf8;
+            border-radius: 4 * @rem;
+
+            color: #4c8cf8;
+            font-size: 24 * @rem;
+            line-height: 30 * @rem;
+            text-align: center;
+        }
+
+		&.tag-di {
+            border: 0;
+            background-image: data-uri("icon_coupon_di.png");
+            background-size: 100%;
+        }
+        &.tag-xi {
+            border: 0;
+            background-image: data-uri("icon_coupon_xi.png");
+            background-size: 100%;
         }
     }
 
@@ -399,4 +411,28 @@
         line-height: 88 * @rem;
         text-align: center;
     }
+}
+
+.tag-corner {
+    box-sizing: border-box;
+
+    position: absolute;
+
+    @half-diagonal: 80;
+    @size: sqrt(pow(@half-diagonal, 2) * 2);
+
+    top: -@size / 2 * @rem;
+    right: -@size / 2 * @rem;
+
+    width: @size * @rem;
+    height: @size * @rem;
+
+    background-color: #ff5e56;
+
+    transform: rotate(45deg);
+
+    color: #ffffff;
+    font-size: 18 * @rem;
+    line-height: @size * @rem * .88 * 2;
+    text-align: center;
 }

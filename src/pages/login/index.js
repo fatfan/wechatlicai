@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-import fetch from 'isomorphic-fetch'
+import { withRouter } from 'react-router'
 
 import { Page, Header, Main } from 'src/component/page'
+import Flex from 'src/component/flex'
+import Input from 'src/component/input'
+import Toast from 'src/component/toast'
+import Button from 'src/component/button'
+
+import request from 'src/lib/request'
 
 import './index.less'
 
-export default class Index extends Component {
+class Login extends Component {
     constructor(prop) {
         super(prop)
         this.state = {
@@ -18,52 +24,34 @@ export default class Index extends Component {
 
     }
 
-    doLogin = (e) => {
+    doLogin = async () => {
         console.log(
             'dologin called...'
         )
-        var data = 'username=' + this.state.username + '&password=' + this.state.password
 
-        fetch('/wechatlicai/src/datapi/login.cgi', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            // crossDomain: true,
-            // xhrFields: { withCredentials: true },
-            // withCredentials: true,
-            credentials: 'include',
-            body: data
-        })
-            .then(function(response) {
-                if (response.status >= 400) {
-                    throw new Error('Bad response from server')
-                }
-                return response.json()
-            })
-            .then(function(rslt) {
-                console.log(rslt)
-                if (rslt.code !== 200) {
-                    console.log('用户名或密码错误')
-                } else {
-                    console.log('登录成功')
-                    window.location.href = '#/mine'
-                }
-            })
+        const result = await request('login', this.state)
+        if (result.code !== 0) {
+            console.log('用户名或密码错误')
+            Toast.show(result.message || '用户名或密码错误')
+        } else {
+            console.log('登录成功')
+            console.log(this.props.match.url)
+            this.props.history.goBack()
+        }
     }
 
-    handleChangeUsername = (e) => {
+    handleChangeUsername = (value) => {
         this.setState({
-            username: e.target.value,
+            username: value,
             // enableLogin: !!this.refs["username"].value && !!this.refs["password"].value,
-            enableLogin: !!e.target.value && !!this.state.password
+            enableLogin: !!value && !!this.state.password
         })
         // console.log(this.refs["username"].value + " " + this.refs["password"].value)
     }
-    handleChangePassword = (e) => {
+    handleChangePassword = (value) => {
         this.setState({
-            password: e.target.value,
-            enableLogin: !!this.state.username && !!e.target.value
+            password: value,
+            enableLogin: !!this.state.username && !!value
         })
         // console.log(this.refs["username"].value + " " + this.refs["password"].value)
     }
@@ -73,26 +61,26 @@ export default class Index extends Component {
     render() {
         return (
             <Page styleName="page">
-                <Header title="登录" backUrl="/"/>
+                <Header title="登录" backUrl="/" />
                 <Main>
                     <div styleName="g-cnt">
                         <div styleName="icon-logo">&#xe610;</div>
                         <p styleName="m-message">aaa</p>
                         <div styleName="m-login">
-                            <div styleName="u-input">
-                                <label htmlFor="username">用户名</label>
-                                <input type="text" placeholder="请输入用户名/手机号" autoComplete="off" onChange={(e) => { this.handleChangeUsername(e) }} />
-                            </div>
-                            <div styleName="u-input">
-                                <label htmlFor="password">登录密码</label>
-                                <input type="password" placeholder="密码" autoComplete="off" onChange={(e) => { this.handleChangePassword(e) }} />
+                            <Input styleName="input" placeholder="请输入用户名/手机号" value={this.state.username} onChange={this.handleChangeUsername}>
+                                <span styleName="label">用户名</span>
+                            </Input>
+                            <Flex styleName="input">
+                                <Input type="password" placeholder="密码" value={this.state.password} onChange={this.handleChangePassword}>
+                                    <span styleName="label">登录密码</span>
+                                </Input>
                                 <em styleName="icon-eye">&#xe60d;</em>
                                 <em styleName="icon-eye" style={{ 'display': 'none' }}>&#xe60e;</em>
-                            </div>
+                            </Flex>
 
-                            <a href="javascript:;" type="text" styleName={this.state.enableLogin ? 'u-submit' : 'u-submit disable'} onClick={() => { console.log('click'); this.doLogin() }}>登&nbsp;&nbsp;录</a>
-                            <div style={{'float': 'right'}}><a href="#register" style={{ 'fontSize': '.28rem', 'color': '#4C8CF8', 'paddingRight': '.30rem' }}>注册领取188元红包</a></div>
-                            <div style={{'float': 'left'}}><a href="getpasswd.html" style={{ 'fontSize': '.28rem', 'color': '#666', 'paddingLeft': '.30rem' }}>忘记密码？</a></div>
+                            <Button width={680} styleName="u-submit" round disabled={!this.state.enableLogin} onClick={this.doLogin}>登&nbsp;&nbsp;录</Button>
+                            <div style={{ 'float': 'right' }}><a href="#register" style={{ 'fontSize': '.28rem', 'color': '#4C8CF8', 'paddingRight': '.30rem' }}>注册领取188元红包</a></div>
+                            <div style={{ 'float': 'left' }}><a href="getpasswd.html" style={{ 'fontSize': '.28rem', 'color': '#666', 'paddingLeft': '.30rem' }}>忘记密码？</a></div>
                         </div>
                     </div>
                 </Main>
@@ -100,3 +88,5 @@ export default class Index extends Component {
         )
     }
 }
+
+export default withRouter(Login)

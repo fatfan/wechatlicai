@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 
 import { rem2px } from 'src/lib/flexible'
 
+import GestureDetector from 'src/component/gesture-detector'
+
 import PullDownIndicator from 'src/component/pull-to-refresh/pull-down-indicator'
 import PullUpIndicator from 'src/component/pull-to-refresh/pull-up-indicator'
 
@@ -70,7 +72,7 @@ export default class PullToRefresh extends PureComponent {
 
     border = BORDER_TOP
 
-    handleTouchStart = (e) => {
+    handleStart = (e) => {
         if (this.state.status !== STATUS_NORMAL) {
             return
         }
@@ -96,22 +98,16 @@ export default class PullToRefresh extends PureComponent {
             return
         }
 
-        this.startY = e.touches[0].pageY
         this.setState({
             status: STATUS_TOUCH_START
         })
     }
 
-    handleTouchMove = (e) => {
-        if (e.touches.length === 0) {
-            return
-        }
-
-        const y = e.touches[0].pageY
+    handleMove = (delta, e) => {
         switch (this.state.status) {
             case STATUS_TOUCH_START:
                 if ((this.border & BORDER_TOP) !== 0) {
-                    if (y > this.startY) {
+                    if (delta > 0) {
                         e.preventDefault()
                         this.border = BORDER_TOP
                         this.setState({
@@ -122,7 +118,7 @@ export default class PullToRefresh extends PureComponent {
                 }
 
                 if ((this.border & BORDER_BOTTOM) !== 0) {
-                    if (y < this.startY) {
+                    if (delta < 0) {
                         e.preventDefault()
                         this.border = BORDER_BOTTOM
                         this.setState({
@@ -139,28 +135,20 @@ export default class PullToRefresh extends PureComponent {
             case STATUS_PULLING:
             case STATUS_RELEASE_TO_REFRESH:
                 e.preventDefault()
-                if (this.border === BORDER_TOP) {
-                    if (y > this.startY) {
-                        const distance = (y - this.startY) / 3
-                        const status = distance > INDICATOR_THREHOLD ? STATUS_RELEASE_TO_REFRESH : STATUS_PULLING
-                        this.setState({
-                            status,
-                            distance,
-                            transition: false
-                        })
-                        return
-                    }
-                } else {
-                    if (y < this.startY) {
-                        const distance = -(y - this.startY) / 3
-                        const status = distance > INDICATOR_THREHOLD ? STATUS_RELEASE_TO_REFRESH : STATUS_PULLING
-                        this.setState({
-                            status,
-                            distance,
-                            transition: false
-                        })
-                        return
-                    }
+
+                if (this.border === BORDER_BOTTOM) {
+                    delta = -delta
+                }
+
+                if (delta > 0) {
+                    const distance = delta / 3
+                    const status = distance > INDICATOR_THREHOLD ? STATUS_RELEASE_TO_REFRESH : STATUS_PULLING
+                    this.setState({
+                        status,
+                        distance,
+                        transition: false
+                    })
+                    return
                 }
 
                 this.setState({
@@ -172,7 +160,7 @@ export default class PullToRefresh extends PureComponent {
         }
     }
 
-    handleTouchEnd = (e) => {
+    handleEnd = (e) => {
         switch (this.state.status) {
             case STATUS_RELEASE_TO_REFRESH:
                 this.load()
@@ -199,17 +187,19 @@ export default class PullToRefresh extends PureComponent {
             children,
             load,
             loadIndicator: LoadIndicator = PullUpIndicator,
+            style = {},
             ...props
         } = this.props
 
-        let translate = INDICATOR_HEIGHT
+        let translate
         if (border === BORDER_TOP) {
-            translate = Math.min(distance, INDICATOR_HEIGHT) - translate
+            translate = Math.min(distance, INDICATOR_HEIGHT)
         } else {
-            translate = -Math.min(distance, INDICATOR_HEIGHT) - translate
+            translate = -Math.min(distance, INDICATOR_HEIGHT)
         }
 
         const containerStyle = {
+            ...style,
             transform: `translateY(${translate}px)`,
             transition: transition ? TRANSITION : ''
         }
@@ -217,17 +207,11 @@ export default class PullToRefresh extends PureComponent {
         return (
             <div className={className} styleName="pull-container" style={containerStyle}>
                 {reload && <ReloadIndicator loading={status === STATUS_LOADING} distance={distance} />}
-                <div styleName="content"
-                    onScroll={this.handleScroll}
-                    onTouchStart={this.handleTouchStart}
-                    onTouchMove={this.handleTouchMove}
-                    onTouchEnd={this.handleTouchEnd}
-                    onTouchCancel={this.handleTouchEnd}
-                    {...props}>
+                <GestureDetector styleName="content" onScroll={this.handleScroll} onStartY={this.handleStart} onMoveY={this.handleMove} onEndY={this.handleEnd} {...props}>
                     {children}
-                </div>
+                </GestureDetector>
                 {load && <LoadIndicator loading={status === STATUS_LOADING} distance={distance} />}
-            </div >
+            </div>
         )
     }
 }

@@ -10,7 +10,7 @@
 .m-list .item .u-title p{margin: 0 0 0.26*@rem;color: #333;}
 .m-list .item .u-title p i{color: #95ADD2;}
 .m-list .item .u-title .u-time{display: block;margin: 0.26*@rem 0;}
-.m-list .item .u-title a{color: #fe4646;}
+.m-list .item .u-title p.detail{color: #fe4646;}
 .m-list .item .u-detail{height: 1.34*@rem;}
 .m-list .item .u-detail i{color: #fe4646;}
 .m-list .item .u-detail p{line-height: 1.34*@rem;}
@@ -292,8 +292,8 @@ animation-fadeIn{
 /*进loading*/
 .u-done{position:relative;width:22px;height:22px;border-radius:50%;background:#51b33b;margin:0 auto;}
 .u-done.empty{width:26px;height:26px;border:3px solid #51b33b;background:none;}
-.u-done:after,.u-done:before{content: '';position:absolute;width:13px;height:2px;background:#fff;border-radius:2px;-webkit-transform:rotate(-50deg);top:10px;right:2px;}
-.u-done:before{width:7px;-webkit-transform:rotate(40deg);right:11px;top:13px;}
+.u-done:after,.u-done:before{content: '';position:absolute;width:13px;height:2px;background:#fff;border-radius:2px;-webkit-transform:rotate(-50deg);transform:rotate(-50deg);top:10px;right:2px;}
+.u-done:before{width:7px;-webkit-transform:rotate(40deg);transform:rotate(40deg);right:11px;top:13px;}
 .u-done.empty:after,.u-done.empty:before{width:10px;height:3px;background:#51b33b;top:16px;right:13px;border-radius:3px;}
 .u-done.empty:after{width:18px;right:1px;top:13px;}
 
@@ -301,7 +301,7 @@ animation-fadeIn{
 .u-ing{width:64px;height:64px;margin:0 auto;background-color:#bbb;border-radius:50%;-webkit-animation:circle 1s infinite ease;-ms-animation:circle 1s infinite ease;animation:circle 1s infinite ease;}
 .u-ing:after{content:'';position:absolute;top:7px;left:7px;width:50px;height:50px;background-color:#5e5e5e;border-radius:50%;z-index:1}
 .u-ing i{display:block;width:64px;height:64px;position:absolute;z-index:1;clip:rect(0,64px,64px,32px)}
-.u-ing i:after{content:'';width:64px;height:64px;background-color:#53a341;border-radius:50%;position:absolute;clip:rect(0,64px,64px,32px);-webkit-transform:rotate(140deg)}
+.u-ing i:after{content:'';width:64px;height:64px;background-color:#53a341;border-radius:50%;position:absolute;clip:rect(0,64px,64px,32px);-webkit-transform:rotate(140deg);transform:rotate(140deg);}
 @-webkit-keyframes circle{
     0%{-webkit-transform:rotate(-160deg);}
     100%{-webkit-transform:rotate(200deg);}

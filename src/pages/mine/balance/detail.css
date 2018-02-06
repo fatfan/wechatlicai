@@ -325,12 +325,12 @@ body {
   color: #999;
 }
 .m-detail .u-class {
-  margin-bottom: 0.06rem;
+  margin-bottom: 0.16rem;
   font-size: 0.3rem;
   color: #333;
 }
 .m-detail .u-sum {
-  margin-bottom: 0.06rem;
+  margin-bottom: 0.16rem;
   font-size: 0.3rem;
   color: #4c8feb;
 }
@@ -560,12 +560,14 @@ animation-fadeIn {
   background: #fff;
   border-radius: 2px;
   -webkit-transform: rotate(-50deg);
+  transform: rotate(-50deg);
   top: 10px;
   right: 2px;
 }
 .u-done:before {
   width: 7px;
   -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
   right: 11px;
   top: 13px;
 }
@@ -621,6 +623,7 @@ animation-fadeIn {
   position: absolute;
   clip: rect(0, 64px, 64px, 32px);
   -webkit-transform: rotate(140deg);
+  transform: rotate(140deg);
 }
 @-webkit-keyframes circle {
   0% {

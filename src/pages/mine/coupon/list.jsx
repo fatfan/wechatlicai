@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import fetch from 'isomorphic-fetch'
 
 import { Page, Header, Main } from 'src/component/page'
-
+import { Link } from 'react-router-dom'
 import './list.less'
 
 export default class Coupon extends Component {
@@ -13,7 +13,7 @@ export default class Coupon extends Component {
     }
     async componentDidMount() {
         var that = this
-        fetch('/wechatlicai/src/datapi/mine/couponListService.cgi', {
+        fetch('/wechatlicai/src/datapi/mine/coupon/couponListService.cgi', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -56,10 +56,10 @@ export default class Coupon extends Component {
         return (
             <Page>
                 <Header title="我的券" />
-                <Main styleName="m-coupon-list" id="couponList">
+                <Main id="couponList" styleName='m-mine'>
                     {this.state.itemList && this.state.itemList.map((item, i) => {
                         return (
-                            <div styleName={'u-coupon' + item.type + ' u-coupon m-couponItem'} data-coupon-id={item.id} data-coupon-type={item.type} data-coupon-use="1" key={i}>
+                            <div styleName='u-coupon' data-coupon-id={item.id} data-coupon-type={item.type} data-coupon-use="1" key={i}>
                                 <div styleName="ofh">
                                     <div styleName="m-prize-coupon f-fl">
                                         {item.type === 4 ? <p>+{item.money}<span>%</span></p> : <p><span>￥</span>{item.money}</p>}
@@ -71,16 +71,19 @@ export default class Coupon extends Component {
                                         {item.type === 4 ? <p styleName="u-rule-coupon">带“息”字官标可用</p> : (item.type === 3 ? <p styleName="u-rule-coupon">带“抵”字官标可用</p> : (item.type === 8 ? <p styleName="u-rule-coupon">除新手标以外官标可用</p> : ''))}
                                         <p styleName="u-time-coupon">有效期至：{this.formatDate(item.endtime, 'yyyy-MM-dd hh:mm:ss')}</p>
                                     </div>
-                                    <div styleName="m-use-coupon f-fr">
-                                        <p>立</p>
-                                        <p>即</p>
-                                        <p>使</p>
-                                        <p>用</p>
-                                    </div>
                                 </div>
                             </div>
                         )
                     })}
+                    <div styleName="more">
+                        <span>没有更多的券了</span>
+                        <a href="used.html" styleName="link-used">查看失效券</a>
+                    </div>
+                    <Link to={`/invest`}>
+                        <div styleName="button-container">
+                            <div styleName="button">去投资</div>
+                        </div>
+                    </Link>
                 </Main>
             </Page>
         )

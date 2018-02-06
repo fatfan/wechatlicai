@@ -47,7 +47,7 @@ export class Invest extends Component {
 
     render() {
         const endMessage = (
-            <Link styleName='more' to={`${this.props.match.url}/repaying`}>
+            <Link styleName='more' to={`/invest/repaying`}>
                 已售罄项目{this.state.flowRepayingCount ? this.state.flowRepayingCount : '---'}个，已还款项目{this.state.flowRepayedCount ? this.state.flowRepayedCount : '---'}个，点击查看
             </Link>
         )
